@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Useful Links</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>Useful Links</h1>
+
+
+        <h3>Remote access using a Microsoft Windows computer</h3>
+        <p>Please see this link for information on how to access the Linux Lab from home. You will need to perform the following steps if you have a <b>Windows</b> machine:</p>
+        <ol>
+            <li>Download the tool called PuTTY <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</a></li>
+            <li>Go to the lab and read the IP address (four numbers separated by periods) from any machine in the lab. They are 157.201.194.201 through 157.201.194.235. This will be be physical machine you are accessing when using remote access</li>
+            <li>Boot PuTTY and type in your IP address from step 2 and the port 215. You might want to save this session so you don't have to keep typing the numbers in.</li>
+            <li>Select [OPEN]. After you specify your username and password, you are now logged into that machine.</li>
+        </ol>
+        <h3>Remote access using an Apple Macintosh computer</h3>
+        <p>If you are on a <b>Macintosh </b>or a <b>Linux</b> computer, bring up a terminal window and type the following command:
+            <br /><code>ssh &lt;username&gt;@&lt;ip&gt; -p 215 -X2</code></p>
+        <p>If, for example, you want to connect to machine 157.201.194.230 and your username is "myUserName", then you would type</p>
+        <p style="padding-left: 30px;"><code>ssh myUserName@157.201.194.230 -p 215 -X2</code></p>
+        <p>There are several other tools available to Macintosh users:</p>
+        <ul>
+            <li>SSH: <a href="https://video.byui.edu/media/SSH/0_fg803qeq/21931002">Using the terminal shell</a></li>
+            <li>textWrangler: <a href="https://video.byui.edu/media/TextWrangler-Install/0_2ekga5ed/21931002">Installing</a>, <a href="https://video.byui.edu/media/textWrangler-Config/0_u9ig228b/21931002">configuring</a>, and <a href="https://video.byui.edu/media/textWrangler-Tips/0_gzu1n4ot/21931002">tips</a></li>
+            <li>Xcode: <a href="https://video.byui.edu/media/xCode-Download/0_9mxcigsv/21931002">Downloading</a>, <a href="https://video.byui.edu/media/xCode-AddingFiles/0_4tley8in/21931002">adding files</a>, and <a href="https://video.byui.edu/media/xCode-Setup/0_rq8hpxtu/21931002">setting up</a></li>
+            <li>cyberDuck: <a href="https://video.byui.edu/media/cyberDuck/0_6zolgzzf/21931002">Coping files to your hard disk</a>.</li>
+        </ul>
+        <hr />
+        <h3>Open GL and IDEs</h3>
+        <p>How to get OpenGL programs to compile on your own machine as well as how to use an IDE (Integrated Develoment Environment) for your Mac or PC:</p>
+        <ul>
+            <li><a href="https://content.byui.edu/file/9823bc74-8fbe-429c-9059-49c074b5227b/1/IDE%20-%20Visual%20Studio%20Setup.pdf">Visual Studio setup for Windows computers</a></li>
+            <li><a href="https://content.byui.edu/file/9823bc74-8fbe-429c-9059-49c074b5227b/1/IDE%20-%20Xcode%20Setup.pdf">Xcode setup for Macintosh computer</a></li>
+        </ul>
+        <hr />
+        <h3>Sharing Files</h3>
+        <p>First, please make sure the files on your directory are locked down. This can be accomplished with "<code>chmod 700 ~</code>".</p>
+        <p>Next, we have a special account created for CS 241 collaborators. These accounts are called "<code>cs241a</code>", "<code>cs241b</code>", and so on. The default password is the name of the login. If, for example, you wish to use "<code>cs241b</code>", then the password is "<code>cs241b</code>".</p>
+        <p>When you are ready to collaborate with your partner, one of you should "claim" a group login. You do this by finding one of the "<code>cs241*</code>" accounts that still has the default password. If you are able to login, then it is yours. Immediately change the password with:</p>
+        <p style="padding-left: 30px;"><code>yppasswd</code></p>
+        <p>Now, with a changed password, the account is yours for the remainder of the semester. Please e-mail both the account name and the new password to your partner.</p>
+        <p>You will also probably want to copy over your configuration file:</p>
+        <p style="padding-left: 30px;"><code>cp /home/cs124/.emacs ~/.emacs</code></p>
+        <p>Please submit often just in case one of you accidentally deletes a file. All of your submissions will be in the <code>submittedHomework</code> directory as usual. Finally, please make sure to put all the group members' name in the <code>makefile</code>. It is important to note that any time an API is changed (basically, a header file is changed), then all the people in the group should meet (either through e-mail or in person) to discuss the change and make sure everything will work after the change.</p>
+        <hr />
+        <h2>General Reference</h2>
+        <h3>C++ Reference manual</h3>
+        <p>Quick reference for all things C++.&nbsp; Great if your book is not handy. The reference section for the various libraries we use in class is the most useful. <a href="http://www.cppreference.com/" target="_blank">http://www.cppreference.com/</a>.</p>
+        <h3>Linux and Emacs Cheat-Sheet</h3>
+        <p>Some commonly used commands and keystrokes that &ldquo;will come in handy&rdquo; while writing programs on the Linux System. <a href="https://content.byui.edu/file/9823bc74-8fbe-429c-9059-49c074b5227b/1/Commands.pdf">Commands.pdf</a></p>
+        <hr />
+        <h2>BYU-I specific resources</h2>
+        <h3>Lab Assistance</h3>
+        <p>What help you can expect (and not expect) from lab assistants. <a href="https://content.byui.edu/file/9823bc74-8fbe-429c-9059-49c074b5227b/1/Linux%20Lab%20Help.pdf" target="_blank">Linux Lab Help.pdf</a></p>
+        <h3>Student CS Resources</h3>
+        <p>A collection of useful links including everything from how to get a C++ compiler installed on your home computer to how to connect to the Linux lab from home. <a href="http://www.byui.edu/computer-science-electrical-engineering/resources-and-tutorials/" target="_blank">http://www.byui.edu/computer-science-electrical-engineering/resources-and-tutorials</a></p>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

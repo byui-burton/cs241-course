@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>03 Prepare : Checkpoint B</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-03-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of handling errors in streams (e.g., cin.fail()).
+        </p>
+
+        <h2>Instructions</h2>
+            <p>Write a C++ program that prompts the user for a number, but if the user enters a word instead, the program handles it gracefully and re-prompts for a number. In particular:
+
+                <ol>
+                    <li>Write a function, <code>prompt</code>, that prompts the user for a number, and returns it.</li>
+                    <li>Have <code>main</code> call this function and then display the result.</li>
+                    <li>In the <code>prompt</code> function, check for invalid input (i.e., cin.fail()). If a failure condition occurs:</li>
+                        <ol>
+                            <li>Clear the fail status.</li>
+                            <li>Ignore the rest of the input in the buffer.</li>
+                            <li>Display the message: "Invalid input."</li>
+                            <li>Then, reprompt for the number.</li>
+                        </ol>
+                    <li>Continue reprompting as long as the input is invalid.</li>
+                </ol>
+            </p>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Enter a number: <span class="user-input">4</span>
+The number is 4.
+</div>
+
+<p>Another run may look as follows:</p>
+<div class="code">
+Enter a number: <span class="user-input">x</span>
+Invalid input.
+Enter a number: <span class="user-input">6</span>
+The number is: 6.
+</div>
+
+<p>Another run may look as follows:</p>
+<div class="code">
+Enter a number: <span class="user-input">Tacos</span>
+Invalid input.
+Enter a number: <span class="user-input">-32</span>
+The number is: -32.
+</div>
+
+<p>Another run may look as follows:</p>
+<div class="code">
+Enter a number: <span class="user-input">And my father dwelt in a tent.</span>
+Invalid input.
+Enter a number: <span class="user-input">I will go and do...</span>
+Invalid input.
+Enter a number: <span class="user-input">Press forward with steadfastness...</span>
+Invalid input.
+Enter a number: <span class="user-input">215</span>
+The number is: 215.
+</div>
+
+
+        <h2>Testbed</h2>
+        <p>
+            A auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without checking <code>cin.fail()</code> and subsequently clearing it, but this will not help you understand the concept, and you will not receive credit if you do not.
+        </p>
+
+        <p>Run the testbed with something like the following:</p>
+        <div class="code">testBed cs241/check03b myCheck03b.cpp</div>
+
+        <h2>Submission</h2>
+        <p>
+            After completing your assignment and verifying that it passes the testbed script, please submit it via the Linux Lab submit system. In the header, it should have, "Checkpoint 03b, Errors".
+        </p>
+        <p>The submit command would be something like:</p>
+
+        <div class="code">submit myCheck03b.cpp</div>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

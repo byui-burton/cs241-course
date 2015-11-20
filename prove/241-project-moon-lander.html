@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>CS 241 Project - Moon Lander</h1>
+
+
+        <h2>Overview</h2>
+        <p>Lunar Lander was one of many influential early video games released by Atari in 1979, and was a precursor to their release of Asteroids (which we will also implement this semester). The object of the game is to safely navigate a lunar module to land on a flat portion of the moon's surface. To pilot the lander, horizontal thrusters can be activated to maneuver the ship left and right, and vertical thrusters can be fired to slow its descent.</p>
+
+        <h2>Instructions</h2>
+        <p>First, you need to set up your environment for OpenGL projects. See <a href="../intro/241-opengl.html" target="_BLANK">this link</a> for information about your different options and instructions to set up each one.
+        </p>
+        <p>Then, your assignment is to create a Moon Lander game that is a based on this classic arcade game. In the game, a random ground configuration is drawn, with a single safe landing platform. The lander begins at a random location along the top of the screen and begins falling according to gravity. The user can fire left, right, and bottom thrusters to guide the craft safely to the landing platform before the fuel is exhausted. The lander will crash if it touches the ground or approaches the platform with too much speed.</p>
+
+        <img src="../attachments/241-prove-moonLander1.png" alt="Moon Lander Game" title="Moon Lander Game" style="width:500px"/>
+
+        <h2>Architectural Design</h2>
+            <p>The entire program will need to be implemented using the principles of encapsulation. Thus, you need to think about the different components (classes) that you will need in the game, and their various actions (methods) and properties (member variables). Before you start programing, you will need to produce UML class diagrams for each of the classes you will be using. Please pay special attention to the design of these components, so they can be as general-purpose as possible. You will want to reuse some of them in future projects.</p>
+
+            <p>To assist you in your project, you will be given an implementation of a Point class that stores an x and y coordinate, and a Ground class that generates random terrain (including the landing platform), and has methods to identify the location of the platform (<code>getPlatformPosition()</code>), the elevation of an object above the ground (<code>getGround(Point)</code>), and if a point would be "crashed" (<code>crashed(Point)</code>). The following UML defines these classes:</p>
+
+            <img src="../attachments/241-prove-moonLander-uml.png" alt="Moon Lander UML" title="Moon Lander UML" style="width:500px"/>
+
+        <h2>Game Play and Rules</h2>
+            <p>The following describes the rules and game play of Moon Lander:</p>
+            <ul>
+            <li>The dimensions of the screen are: (-200, -200) to (200, 200).</li>
+            <li>The lander begins with 500 units of fuel.</li>
+            <li>To land successfully, the lander must:</li>
+                <ul>
+                <li>have its center within the horizontal boundaries of the platform.</li>
+                <li>be within 4 pixels vertically, above the platform.</li>
+                <li>arrive at the platform with a velocity of no more than 3 pixels per frame in any direction.</li>
+                </ul>
+            <li>Gravity on the moon can be modeled as 0.1 pixels per frame.</li>
+            <li>The left arrow key causes thrust on the left of the lander which propels it to the right (and similar for the right and down arrows).</li>
+            <li>The left and right thrust amounts are 0.1 pixels per frame, and consume 1 unit of fuel.</li>
+            <li>The upward thrust (caused by the down arrow) amount is 0.3 pixels per frame, and consumes 3 units of fuel.</li>
+            <li>The lander should have inertia, in other words, once it begins moving left, it should continue moving left unless additional thrust is made.</li>
+            <li>The lander should not continue to move after crashing or landing.</li>
+            <li>After successfully landing, the game should display, "You have successfully landed!"</li>
+            <li>After crashing, the game should display, "You have crashed."</li>
+            <li>After running out of fuel, the lander should not be able to apply thrusters (but can continue falling).</li>
+            <li>Any other contact with the ground or platform results in a crash.</li>
+
+            </ul>
+
+
+        <h3>Error Handling</h3>
+        <p>As usual, your classes and the game itself will need to be robust to any type of user or file input. Extensive error handling should also be built into each class to ensure that clients of the class will use them correctly. Similarly, there should be no way the user can cause the program to malfunction due to incorrectly formed input.</p>
+
+
+        <h2>Using the Provided Files</h2>
+
+        <p>The graphics and game play will be done with OpenGL. A simplified interface to this library is provided.</p>
+        <p>Essentially there are two sets of files, those that handle the details of the graphics and drawing, and those that relate to the Moon Lander part of the game. You are welcome to look through the first set of files, but you will likely not need to change anything there.</p>
+
+        <h3>Set 1 - The Graphics interface</h3>
+        <p>The part of graphics interface files that is important for you to know, is that they provides the following functions:</p>
+
+        <ul>
+            <li>
+                <code>drawLander(Point p)</code>
+                <ul><li>Draws a lander (i.e., ship) at the provided point.</li></ul>
+            </li>
+            <li>
+                <code>drawLanderFlames(Point p, bool bottom, bool left, bool right)</code> 
+                <ul><li>Draws the flames for the lander at any direction set to true.</li></ul>
+            </li>
+            <li>
+                <code>drawText(Point p, const char * text)</code>
+                <ul><li>Puts the provided text on the screen at point p.</li></ul>
+            </li>
+            <li>
+                <code>drawNumber(Point p, unsigned int number)</code>
+                <ul><li>Puts the provided number on the screen at point p.</li></ul>
+            </li>
+        </ul>
+
+        <p>The files that compose this interface to the library are: (again, you should not need to worry about the details of them)</p>
+
+        <div>
+            <ul>
+                <li><code>/home/cs241/moonLander/uiInteract.h</code> -- Header file describing the OpenGL interface</li> 
+                <li><code>/home/cs241/moonLander/uiInteract.cpp</code> -- Source for uiInteract.h. Should not change </li>
+                <li><code>/home/cs241/moonLander/uiDraw.h</code> -- Header file with drawing function prototypes</li> 
+                <li><code>/home/cs241/moonLander/uiDraw.cpp</code> -- All the drawing functions. </li>
+
+                <li><code>/home/cs241/moonLander/point.h</code> -- Ultra simple class describing a single point</li> 
+                <li><code>/home/cs241/moonLander/point.cpp</code> -- Implementation of the Point class</li>                   
+            </ul>
+        </div>
+
+        <h3>Set 2 - Files Relating to Moon Lander</h3>
+        <p>The next set of files relate directly to the Moon Lander. First, we have a makefile and a Ground class.</p>
+        <p>The makefile contains rules to build compile all of the files provided, but YOU WILL NEED TO UPDATE IT to compile any new files / classes you create.</p>
+
+        <ul>
+            <li><code>/home/cs241/moonLander/makefile</code> -- Instructions to build the game</li>
+        </ul>
+
+        <p>The Ground class is used to draw the terrain of the world and the platform. It also contains methods that allow you to know how close a point is to the ground, etc.</p>
+
+        <ul>
+            <li><code>/home/cs241/moonLander/ground.h</code> -- Header file for the Ground</li>
+            <li><code>/home/cs241/moonLander/ground.cpp</code> -- Implementation for the Ground class</li>
+        </ul>
+
+        <h3>The Place to Start</h3>
+        <p>Finally, you are provided with a file, <code>game.cpp</code> that is the driver for the program.
+
+        <ul>
+            <li><code>/home/cs241/moonLander/game.cpp</code> -- Driver program shell for your project (start with this, but it will need to be finished).</li>
+        </ul>
+
+        <p>It starts up the game, and the continually loops through the following functions:</p>
+        <ol>
+            <li><code>advance</code> - Any "moving" of objects should be done here.</li>
+            <li><code>handleInput</code> - Check for user input and take the corresponding actions.</li>
+            <li><code>draw</code> - Call draw on every object that should be on the screen.</li>
+        </ol>
+
+        <h3>Getting the Files</h3>
+        <p>All of the above mentioned files are found in the directory:</p>
+            <ul>
+                <li><code>/home/cs241/moonLander/*</code></li>
+            </ul>
+        <p>You will need to copy them to your own directory in whatever environment you choose.</p>
+
+        <h2>Examples</h2>
+            <h3>uiTest</h3>
+            <p>A very simple OpenGL project is provided for you to observe and play with. It shows a shape in the middle of the screen and responds to arrows and the space bar. This is a great project to start with to make sure your environment is set up correctly, and then look at the code to observe the basic interactions. The project is found at:</p>
+            <ul>
+                <li><code>/home/cs241/uiTest/*</code></li>
+            </ul>
+
+            <h3>Pong</h3>
+            <p>Another working example is Pong. This example demonstrates handling user interaction and moving the ball. The source code for Pong can be found at:</p>
+            <ul>
+                <li><code>/home/cs165new/pong/*</code></li>
+            </ul>
+
+            <h3>Working Version of Moon Lander</h3>
+            <p>So that you can observe the game play, and what the program should be doing, please refer to the following working program:
+            </p>
+
+            <ul>
+                <li><code>/home/cs241/moonLander.out</code></li>
+            </ul>
+
+
+            <h2>Assignments</h2>
+
+            <p>This project will be broken up into the following assignment submissions:</p>
+
+            <ul>
+                <li><a href="241-06-design-moon-lander.html" target="_BLANK">Design : Moon Lander</a></li>
+                <li><a href="241-06-prove-moon-lander-milestone.html" target="_BLANK">Milestone : Moon Lander</a></li>
+                <li><a href="241-07-prove-moon-lander.html" target="_BLANK">Project : Moon Lander</a></li>
+            </ul>
+
+            <h2>Expectation to Excel</h2>
+            <p>As explained in more detail in the Project link above, the requirements presented here are simply a base standard. To receive up to 100% on this assignment you are expected to show creativity and excel above and beyond what is specifically required.</p>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

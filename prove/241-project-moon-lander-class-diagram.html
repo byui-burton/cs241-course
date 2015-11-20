@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>CS 241 Project - Moon Lander - Potential Class Diagram</h1>
+
+        <p>The following is a class diagram similar to what we discussed in class. It is not the only way to solve this problem.</p>
+
+        <div class="class-diagrams">
+
+            <table class="table-class-diagram">
+                <tr><th>Point</th></tr>
+                <tr><td>-x : float</td></tr>
+                <tr><td>-y : float</td></tr>
+
+                <tr class='class-diagram-spacer'><td></td></tr>
+                <tr><td>+Point()</td></tr>
+                <tr><td>+Point(float x, float y)</td></tr>
+                <tr><td></td></tr>
+                <tr><td>+getX() : float</td></tr>
+                <tr><td>+getY() : float</td></tr>
+                <tr><td></td></tr>
+                <tr><td>+setX(float) : void</td></tr>
+                <tr><td>+setY(float) : void</td></tr>
+            </table>
+
+            <table class="table-class-diagram">
+                <tr><th>Ground</th></tr>
+                <tr><td>-platform : Point</td></tr>
+                <tr><td>-xSize : int</td></tr>
+                <tr><td>-ground : float[]</td></tr>
+
+                <tr class='class-diagram-spacer'><td></td></tr>
+                <tr><td>+Ground()</td></tr>
+                <tr><td>+~Ground()</td></tr>
+                <tr><td></td></tr>
+                <tr><td>+draw()</td></tr>
+                <tr><td>+crashed(Point) : bool</td></tr>
+                <tr><td>+getGround(Point) : Point</td></tr>
+                <tr><td>+generateGround() : void</td></tr>
+                <tr><td>+getPlatformPosition() : Point</td></tr>
+                <tr><td>+getPlatformWidth() : int</td></tr>
+            </table>
+        </div>
+
+        <div class="class-diagrams">
+            <table class="table-class-diagram">
+                <tr><th>Lander</th></tr>
+                <tr><td>-point : Point</td></tr>
+                <tr><td>-velocity : Velocity</td>
+                <tr><td>-fuel : int</td>
+                <tr><td>-alive : bool</td>
+                <tr><td>-landed : bool</td>
+                </tr>
+                <tr class='class-diagram-spacer'><td></td></tr>
+                <tr><td>+Lander()</td></tr>
+                <tr><td>+getPoint() : Point</td></tr>
+                <tr><td>+getVelocity() : Velocity</td></tr>
+                <tr><td>+getFuel() : int</td></tr>
+                <tr><td>+isAlive() : bool</td></tr>
+                <tr><td>+hasLanded() : bool</td></tr>
+                <tr><td></td></tr>
+                <tr><td>+setPoint(Point) : void</td></tr>
+                <tr><td>+setVelocity(Velocity) : void</td></tr>
+                <tr><td>+setAlive(bool) : void</td></tr>
+                <tr><td>+setLanded(bool) : void</td></tr>
+                <tr><td></td></tr>
+                <tr><td>+canThrust() : bool</td></tr>
+                <tr><td>+applyGravity(float)</td></tr>
+                <tr><td>+applyThrustLeft() : void</td></tr>
+                <tr><td>+applyThrustRight() : void</td></tr>
+                <tr><td>+applyThrustBottom() : void</td></tr>
+                <tr><td>-consumeFuel(int amount) : void</td></tr>
+                <tr><td></td></tr>
+                <tr><td>advance() : void</td></tr>
+                <tr><td>draw() : void</td></tr>
+            </table>
+
+            <table class="table-class-diagram">
+                <tr><th>Velocity</th></tr>
+                <tr><td>-dx : float</td></tr>
+                <tr><td>-dy : float</td></tr>
+
+                <tr class='class-diagram-spacer'><td></td></tr>
+                <tr><td>+Velocity()</td></tr>
+                <tr><td>+Velocity(float dx, float dy)</td></tr>
+                <tr><td></td></tr>
+                <tr><td>+getDx() : float</td></tr>
+                <tr><td>+getDy() : float</td></tr>
+                <tr><td></td></tr>
+                <tr><td>+setDx(float) : void</td></tr>
+                <tr><td>+setDy(float) : void</td></tr>
+                <tr><td></td></tr>
+                <tr><td>add(Velocity) : Velocity</td></tr>
+                <tr><td>addOnto(Velocity) : void</td></tr>
+
+            </table>
+        </div>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

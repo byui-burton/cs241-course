@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>06 Prepare : Checkpoint A - Makefiles</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-06-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of separate compilation and makefiles. You will be provided a simple class and asked to prepare a makefile to perform the separate compilation and the linking required to produce a final executable.
+        </p>
+
+        <h2>Instructions</h2>
+            <p>Begin with a working implementation of a robot and point class from last weeks team activity. You can copy this code to your directory via the following:</p>
+
+
+<div class="code">
+mkdir check06a
+cd check06a
+
+cp /home/cs241/check06a/* .
+</div>
+
+            <p>This code contains an empty makefile (with the header information you need to fill out). Your task is to open this makefile (e.g., "emacs makefile") and add the necessary rules to compile the executable.</p>
+            <p>Please make note of the following instructions / requirements:</p>
+            <ol>
+                <li>The implementation of the robot class is in robot.cpp</li>
+                <li>The implementation of the point class is in point.cpp</li>
+                <li>The main function is in check06a.cpp</li>
+                <li>You must set up your makefile to compile these separately. In other words, your makefile must create robot.o, point.o, and check06a.o first.</li>
+                <li>Then, your make file should link all of the .o files together to produce a final executable (a.out).</li>
+                <li>Each rule in the makefile should list all of its dependencies. Test this by trying the following cases (plus more):</li>
+                <ul>
+                    <li>Change check06a.cpp, this should update check06a.o and a.out</li>
+                    <li>Change robot.cpp, this should update robot.o and a.out</li>
+                    <li>Change robot.h, this should update robot.o, check06a.o, and a.out</li>
+                </ul>
+                <li>Please note that the makefiles we have been using to this point (for team activities and prior assignments) DO NOT use separate compilation. They simply list all of the .cpp files in the same "g++" command. This is NOT sufficient for this assignment.</li>
+            </ol>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Robot details: (5, 5) - Energy: 100
+</div>
+
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without a makefile that adheres to all of the requirements above, but this will not help you understand the concept, and you will not receive credit if you do not follow the instructions.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+tar -cf check06a.tar makefile *.h *.cpp
+testBed cs241/check06a check06a.tar
+submit check06a.tar
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

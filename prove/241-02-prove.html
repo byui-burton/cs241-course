@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>02 Prove : Assignment - Digital Forensics</h1>
+
+
+        <h2>Overview</h2>
+        <p>ACME Widget Corporation just experienced their first digital security breach. One of their secret widget designs just appeared on the Internet. Now they've hired you as a digital forensics investigator to help determine what additional data might have been involved in the breach.</p>
+        <p>One of the first steps in digital forensics is to inspect system logs, particularly file access and user account logs. To assist you in this investigation, you've been given a log from ACME's network server that contains a list of file access times and the users that accessed them.</p>
+
+        <p>Write a program to scan through that log to identify users who accessed files in a particular window of time.</p>
+
+
+        <h2>Instructions</h2>
+            <p>
+                Write a C++ program according to the following:
+
+                <ol>
+                    <li>Create a struct for an Access Record that contains a username, a filename, and a long (e.g. very large integer) timestamp.</li>
+                    <li>Prompt the user for the name of a file.</li>
+                    <li>Read in a list of Access Records from the file and store it in an array of structs.</li>
+                    <li>Prompt the user for a start time and an end time for consideration.</li>
+                    <li>Display a list of all files that were accessed during that period along with the users that accessed them.</li>
+                    <li>For this assignment you may assume that the information entered is all valid</li>
+                    <li>Don't forget to break your program into meaningful, cohesive functions!</li>
+                </ol>
+            </p>
+
+            <p>A few hints</p>
+            <ul>
+                <li>It is common to create a function, such as displayRecord, that would take a struct and display it in a proper format.</li>
+                <li>Don't forget to use setw() (from the iomanip library) to help with your right alignment.</li>
+                <li>Get started early, there are a few tricky aspects to this assignment.</li>
+            </ul>
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+        <div class="code">
+Enter the access record file: <span class="user-input">/home/cs241/assign02a.txt</span>
+
+Enter the start time: <span class="user-input">1442000000</span>
+Enter the end time: <span class="user-input">1442332025</span>
+
+The following records match your criteria:
+
+      Timestamp                File                User
+--------------- ------------------- -------------------
+     1442000124           house.pdf             jatkins
+     1442001032           users.txt     kevin_tomlinson
+     1442210121        accounts.mdb     kevin_tomlinson
+     1442300125        vacation.jpg            smitty83
+End of records
+</div>
+
+The input file could look something like:
+
+<div class="code">
+students.txt pricem 1441912123
+house.pdf jatkins 1442000124
+users.txt kevin_tomlinson 1442001032
+accounts.mdb kevin_tomlinson 1442210121
+vacation.jpg smitty83 1442300125
+calendar.cpp burtons 1442588012
+</div>
+
+        <h2>Helpful Commands</h2>
+
+<div class="code">
+cp /home/cs241/template.cpp myAssign02.cpp
+
+testBed cs241/assign02 myAssign02.cpp
+styleChecker myAssign02.cpp
+
+submit myAssign02.cpp
+</div>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

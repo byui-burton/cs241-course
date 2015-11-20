@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>09 Prepare : Checkpoint A - Virtual Functions</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-09-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of virtual functions.
+        </p>
+
+        <p>Consider that you are writing software for a factory that builds cars. You produce Civics, Odysseys, and Ferraris. We will have a base class that has the name of the car, along with a getter and setter:</p>
+
+                <div class="class-diagrams">
+                    <table class="table-class-diagram">
+                        <tr><th>Car</th></tr>
+                        <tr><td>#name : string</td></tr>
+                        </tr>
+                        <tr class='class-diagram-spacer'><td></td></tr>
+                        <tr><td>+getName() : string</td></tr>
+                        <tr><td>+setName(string) : void</td></tr>
+                        <tr><td>+<em>getDoorSpecs</em>() : string</td></tr>
+                    </table>
+                </div>
+        <p>Then, you should create three derived classes (Civic, Odyssey, and Ferrari) that inherit from this base class, and redefine the <code>getDoorSpecs()</code> method.</p>
+        
+
+        <h2>Instructions</h2>
+
+        <p>For this assignment, because the classes we are going to create are so small and simplistic, and to help you focus on just the elements of inheritance, rather than the mechanics of creating lots of files, you will put all of your classes at the top of the main file, rather than creating separate .h and .cpp files like we would for larger, real-world classes.</p>
+
+            <ol>
+                <li>Copy the template file /home/cs241/check09a.cpp to your working directory.</li>
+                <li>Create a class for a <code>Car</code> that has the following member variables and methods as described above.
+                </li>
+
+                <li>Fill in a default <code>getDoorSpecs()</code> method that returns the string "Unknown doors". In the constructor, set the <code>name</code> variable to be "Unknown model".</li>
+
+                <li>Next create a class <code>Civic</code> that inherits from the <code>Car</code> class and overrides the <code>getDoorSpecs()</code> to return the string "4 doors". In the constructor, set the <code>name</code> variable to be "Civic".
+                </li>
+
+                <li>Next create a class <code>Odyssey</code> that inherits from the <code>Car</code> class and overrides the <code>getDoorSpecs()</code> to return the string "2 front doors, 2 sliding doors, 1 tail gate". In the constructor, set the <code>name</code> variable to be "Odyssey".
+                </li>
+
+                <li>Next create a class <code>Ferrari</code> that inherits from the <code>Car</code> class and overrides the <code>getDoorSpecs()</code> to return the string "2 butterfly doors". In the constructor, set the <code>name</code> variable to be "Ferrari".
+                </li>
+
+                <li>A main function is provided that creates one of each of these cars, and passes it to a method called "attachDoors". You need to write this method. It should accept any type of car and display the text: "Attaching doors to Civic - 4 doors" (Of course, replacing "Civic" with the appropriate name, and "4 doors" with the result of calling the <code>getDoorSpecs()</code> method).
+                </li>
+
+                <li>You must make a single function attachDoors that handles any type of car. You cannot have three separate functions or a single function that takes three parameters.</li>
+
+
+            </ol>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Attaching doors to Civic - 4 doors
+Attaching doors to Odyssey - 2 front doors, 2 sliding doors, 1 tail gate
+Attaching doors to Ferrari - 2 butterfly doors 
+</div>
+
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using virtual functions, but this will not help you understand the concept, and you will not receive credit if you do not follow the instructions.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+testBed cs241/check09a check09a.cpp
+submit check09a.cpp
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

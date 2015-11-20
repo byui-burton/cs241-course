@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - OpenGL with a Virtual Machine</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>Virtual Machines</h1>
+        <p>A virtual machine program allows you to create a virtual computer inside of your current computer. For example, you can create a Linux computer inside of your windows computer. The Linux virtual machine runs in a seperate window, isolated from the rest of the things installed on your computer.</p>
+
+        <p>There are two steps to setting up a virtual machine. First, you need to install a virtual machine emulator, the program that will run the virtual machines. Second, you need to create or install a virtual machine image, the code and other information that makes up the virtual computer you want to run.</p>
+
+        <h2>Install VirtualBox</h2>
+
+        <p>There are many virtual machine emulators available. Some are free, others are not. A good option for a free virtual machine emulator is <a href="https://www.virtualbox.org/wiki/Downloads">Oracle's VirtualBox software</a>.</p>
+
+        <p>If you're running Windows, you'll want to go to the VirtualBox Download page and click the link next to the line  that says "VirtualBox for Windows hosts". If you're running a different OS, choose the option for your operating system.</p>
+
+        <img class="screenshot" src="./img/virtualbox-download.png"/>
+
+        <p>Once you've downloaded the software, double click the installer icon to install VirtualBox. Follow the instructions provided by the installer. We recommend you stick with the default installation options.</p>
+
+        <p>Once installation completes, you should see an icon on your desktop that you can use to launch VirtualBox.</p>
+
+        <img class="screenshot" src="./img/virtualbox-icon.png"/>        
+
+        <h2>Install the Virtual Machine Image</h2>
+
+        <p>Once Virtual Box is installed, you'll need to download the virtual machine image. This image has been preconfigured with much of the software you'll need for OpenGL development.</p>
+ 
+        <p>Click <a href="https://drive.google.com/file/d/0B0yIGzplvZeUb3ZzUXFYb3N5SjA/view?usp=sharing">this link to download the Virtual Machine Image</a>. Save the file someplace that is easy to find, like your Desktop.</p>
+
+        <p>Once the virtual machine image has finsihed downloading, double-click it's icon to load it into VirtualBox.</p>
+        <img class="screenshot" src="./img/vmicon.png"/>
+
+        <p>In the window that appears, click "Import", then wait for import to complete.</p>
+        <img class="screenshot" src="./img/vmimport.png"/>
+
+        <h2>Test OpenGL on the Virtual Machine</h2>
+
+        <p>Once the virtual machine image has been imported into VirtualBox, you may now run the virtual machine.</p>
+
+        <p>If VirtualBox isn't running, double-click its shortcut icon to start it.</p>
+        <img class="screenshot" src="./img/virtualbox-icon.png"/>
+
+        <p>A window should appear showing you a list of virtual machines. Select the CS165 Virtual Machine from the list, then click the Start button at the top of the window.</p>
+        <img class="screenshot" src="./img/vmstart.png"/>
+
+        <p>Wait a minute or so while the virtual machine finishes booting up. You may resize the window as necessary.</p>
+
+        <p>At this point, you may receive an error regarding hardware acceleration. If this happens, you will need to configure this setting in the BIOS settings of your laptop. Some laptops (especially older ones) may not support this. The way to change your BIOS settings is different on different devices, but likely you need to push a key, such as F1, when your computer is in the very first stage of booting up. Once in the BIOS settings, you will want to look for a setting such as "Hardware Acceleration", likely under a menu item of "Virtualization" or "Security / Virtualization", then enable this setting. Reboot your device, and proceed with the instructions.</p>
+
+
+        <p>When the desktop appears, click on the red FileZilla icon that is in the quicklaunch bar on the left side of the screen.</p>
+        <img class="screenshot" src="./img/vmfilezilla.png"/>
+
+        <p>In FileZilla, right click the server icon in the upper-right corner and select Linux Lab.</p>
+        <img class="screenshot" src="./img/vmconnect.png"/>
+
+        <p>In the login window that appears, type in your username and password.</p>
+
+        <p>FileZilla is now connected to the Linux Lab. Navigate to <code>/home/cs241/uiTest</code> by typing that directory path into the remote site bar on the right side of the screen. Then press enter.</p>
+        <p>Next, change the Local site path to <code>/home/cs165/project2</code> and press enter.</p>
+        <p>In the bottom-right pane of FileZilla, you should now see a list of files. Drag all of those files into botton left-hand pane, then close FileZilla.</p>
+        <img class="screenshot" src="./img/vmfiles.png"/>
+        
+        <p>Click on the black terminal icon in the quicklaunch bar on the left side of the screen to open a terminal.</p>
+        <p>Change directories to the project 2 folder, execute <code>make</code>, then run <code>a.out</code>.
+        <img class="screenshot" src="./img/terminal.png"/>
+
+        <p>If all goes well, you should see a window appear with a rotating shape, which can be controlled using your arrow keys.</p>
+        <img class="screenshot" src="./img/success.png"/>
+
+        <p>If you need to use the "sudo" password, it is "cs165".</p>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

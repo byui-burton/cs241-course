@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>05 Prepare : Checkpoint A - Getters and Setters</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-05-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of getters and setters. In particular, you will be provided the code of a class and your assignment is to add getters and setters to it.
+        </p>
+
+        <h2>Instructions</h2>
+            <p>Add Getters and Setters to an existing Money class that holds dollars and cents.</p>
+
+                <ol>
+                    <li>Copy the existing files as follows:
+<div class="code">
+mkdir check05a
+cd check05a
+
+cp /home/cs241/check05a/* .
+</div>
+
+                    This will provide you with the following files:
+                        <ul>
+                            <li><code>money.h</code> - Contains the definition of the Money class</li>
+                            <li><code>money.cpp</code> - Contains the method bodies for the Money class</li>
+                            <li><code>check05a.cpp</code> - Contains the main function for this assignment.</li>
+                            <li><code>makefile</code> - Contains instructions for the testbed to build your program.</li>
+                        </ul>
+                    </li>
+                    <li>Please note that this code does not compile at this point. You need to add code to make it compile.</li>
+                    <li>Add the following member functions:
+                        <ul>
+                            <li><code>getDollars</code></li>
+                            <li><code>getCents</code></li>
+                            <li><code>setDollars</code></li>
+                            <li><code>setCents</code></li>
+                        </ul>
+                    </li>
+                    <li>This class has simple prompt and display methods that expect these getters and setters to be present.</li>
+                    <li>If negative values are passed to either of your setters, you should set the value to be positive (e.g., setting -3 dollars, will result in 3 dollars).</li>
+
+                    <li>
+                        You should not change anything in main, prompt, or display. All you need to do is add the Getters and Setters.
+                    </li>
+                    <li>Don't forget to add your information to the makefile before tar-ing, and submitting.
+                    </li>
+                </ol>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Dollars: <span class="user-input">10</span>
+Cents: <span class="user-input">23</span>
+$10.23
+That is 10 dollars and 23 cents!
+</div>
+        <p>Another example is:</p>
+<div class="code">
+Dollars: <span class="user-input">3</span>
+Cents: <span class="user-input">-2</span>
+$3.02
+That is 3 dollars and 2 cents!
+</div>
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using getters and setters, but this will not help you understand the concept, and you will not receive credit if you do not use them.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+tar -cf check05a.tar makefile *.h *.cpp
+testBed cs241/check05a check05a.tar
+submit check05a.tar
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

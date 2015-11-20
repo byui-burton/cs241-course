@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>05 Teach : Team Activity - Accessors/Mutators and Constructors</h1>
+
+        <p>This activity is designed to be completed during class.</p>
+
+        <h1>Overview</h1>
+        <p>As a team, write a program to model a robot that can move around and fire a laser. To accomplish this you'll need to work with two classes: a Point (which has integer X and Y coordinates) and a Robot (which has a Point and an integer amount of engery).
+
+        <h1>Instructions</h1>
+        <p>You will be provided with a basic version of these classes, that have the member variables, and a display function.</p>
+
+        <p>Here are the class diagrams of the classes according to how they are provided to you:</p>
+
+    <div class="class-diagrams">
+        <table class="table-class-diagram">
+            <tr><th>Point</th></tr>
+            <tr>
+                <td>
+                    -x : int<br />
+                    -y : int
+                </td>
+            </tr>
+            <tr class='class-diagram-spacer'><td></td></tr>
+            <tr>
+                <td>
+                    +display() : void
+                </td>
+            </tr>
+        </table>
+
+        <table class="table-class-diagram">
+            <tr><th>Robot</th></tr>
+            <tr>
+                <td>
+                    -position : Point<br />
+                    -energy : int
+                </td>
+            </tr>
+            <tr class='class-diagram-spacer'><td></td></tr>
+            <tr>
+                <td>
+                    +display() : void
+                </td>
+            </tr>
+        </table>
+    </div>
+
+        <p>You can obtain this code by doing the following:</p>
+<div class="code">
+mkdir ta05
+cd ta05
+
+cp /home/cs241/ta05/* .
+</div>
+
+        <h3>Part I - Add Getters and Setters</h3>
+        <p>Take the classes provided and add getters and setters for all the private data members. In particular, note the following rules</p>
+
+        <ul>
+            <li>Our robot is limited to a grid that ranges from (1,1) to (10,10)</li>
+            <li>If the user tries to set X or Y to an amount less than 1, it should simply be set to 1.</li>
+            <li>If the user tries to set X or Y to an amount greater than 10, it should simply be set to 10.</li>
+            <li>The robot's engergy cannot be negative. If the user tries to set it to a negative value, it should be set to 0.</li>
+        </ul>
+
+        <p>A main function has been provided for you to help test your getters and setters. Uncomment the code that is marked "Part I" and make sure it compiles and runs correctly.</p>
+
+        <h3>Part II - Add Point Constructors</h3>
+        <p>Take the classes provided and add a default constructor and a non-default constructor for the Point class. In particular, note the following rules</p>
+
+        <ul>
+            <li>The default location of the robot is at (5, 5).</li>
+            <li>A non-default constructor should be created to take an X and Y coordinate, and set the values accordingly.</li>
+            <li>The same rules about possible values for X and Y as in the last section still apply.</li>
+        </ul>
+
+        <p>A main function has been provided for you to help test the point class constructors. Uncomment the code that is marked "Part II" and make sure it compiles and runs correctly.</p>
+
+        <h3>Part III - Add Robot Constructors</h3>
+        <p>Take the classes provided and add a default constructor and a non-default constructor for the Robot class. In particular, note the following rules:</p>
+
+        <ul>
+            <li>The default energy amount is 100.</li>
+            <li>A non-default constructor should be created to take an integer engergy amount, and still have the robot at its default position.</li>
+            <li>A non-default constructor should be created to take both a Point and an integer engergy amount.</li>
+            <li>The same rules about possible values for X and Y as in the last section still apply.</li>
+        </ul>
+
+        <p>A main function has been provided for you to help test the point class constructors. Uncomment the code that is marked "Part III" and make sure it compiles and runs correctly.</p>
+        
+        <p>After your modifications, the class diagrams should be as follows:</p>
+
+        <div class="class-diagrams">
+            <table class="table-class-diagram">
+                <tr><th>Point</th></tr>
+                <tr>
+                    <td>
+                        -x : int<br />
+                        -y : int
+                    </td>
+                </tr>
+                <tr class='class-diagram-spacer'><td></td></tr>
+                <tr>
+                    <td>
+                        +Point()<br />
+                        +Point(int, int)<br />
+                        <br />
+                        +getX() : int<br />
+                        +getY() : int<br />
+                        <br />
+                        +setX(int) : void<br />
+                        +setY(int) : void<br />
+                        <br />
+                        +display() : void
+                    </td>
+                </tr>
+            </table>
+
+            <table class="table-class-diagram">
+                <tr><th>Robot</th></tr>
+                <tr>
+                    <td>
+                        -position : Point<br />
+                        -energy : int
+                    </td>
+                </tr>
+                <tr class='class-diagram-spacer'><td></td></tr>
+                <tr>
+                    <td>
+                        +Robot()<br />
+                        +Robot(int)<br />
+                        +Robot(Point, int)<br />
+                        <br />
+                        +getPosition() : Point<br />
+                        +getEnergy() : int<br />
+                        <br />
+                        +setPosition(Point) : void<br />
+                        +setEnergy(int) : void<br />
+                        <br />
+                        +display() : void
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <h3>Stretch Challenges</h3>
+        <p> After completing the above steps. Make sure that everyone on the entire team is to this point and understands the material. Then, if you have time, move onto the following stretch challenges.</p>
+
+        <ol>
+            <li>Add "moveUp", "moveDown", "moveLeft", and "moveRight" member functions to your Robot class. Uncomment the code in Main indicated "Stretch Part I". Make sure that your Robot does not leave the range of (1, 1) to (10, 10).</li>
+            <li>Add a "fireLaser" method to your class. It should output something (e.g., "Pew! Pew!") and reduce the robots energy by 25. Also, make it so that the movement methods each decrease the engergy by 10. Uncomment the code marked "Stretch Part II" and ensure that your robot never gets to negative energy.</li>
+            <li>Consider that there are land mines in the following locations: (3, 3), (4, 4), and (6, 6). If the robot ever moves to those spots, reduce its energy to 0. Further, change it so that if the robot tries to move or fire a laser without enough energy, an error message should be displayed and the move or the firing should be aborted.</li>
+        </ol>
+
+
+        <h1>Completion</h1>
+        <p>By following the steps above, you should complete and report on the following:</p>
+
+        <p>Core Requirements:</p>
+
+        <ol>
+            <li>Part I - Getters and Setters</li>
+            <li>Part II - Point Constructors</li>
+            <li>Part III - Robot Constructors</li>
+        </ol>
+
+        <p>Stretch Challenges: (Make sure everyone on your team is done with their core features before working on these.)</p>
+
+        <ol>
+            <li>Part I - Movement</li>
+            <li>Part II - Laser and decreasing energy</li>
+            <li>Part III - Landmines and not allowing actions without enough energy.</li>
+        </ol>
+
+        <h1>Submission</h1>
+        <p>You do not need to submit your program (just make sure that everyone has a copy of it for their reference). Instead, answer the accompanying questions in the I-Learn quiz.</p>
+
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

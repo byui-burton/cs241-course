@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>04 Prove : Assignment - Ecommerce Product Inventory</h1>
+
+
+        <h2>Overview</h2>
+        <p>Your out-of-your-home online store is really taking off!</p>
+        <p>Now you realize that it's time to get a little more serious about creating a better storefront website and a system to track your orders and products. Luckily, you are a programmer!</p>
+        <p>This week, you will create our own library to handle products: to store their information, compute shipping costs, and display receipts, etc. Next week you will build on this by adding additional functionality.</p>
+
+
+        <h2>Instructions</h2>
+            <p>
+                Write a C++ program according to the following:
+
+                <ol>
+                    <li>Create a class for a product that stores the name, base price, weight, and description of a product.</li>
+                    <li>Create a <code>prompt</code> method (function) that prompts for the name, base price, weight, and description, and sets these values in the current object.</li>
+                    <li>Create a <code>getSalesTax</code> method to that returns 6% of the base price.</li>
+                    <li>Create a <code>getShippingCost</code> method that returns a flat rate of $2.00 if the item is less than 5 lbs, and $2.00 + $0.10 per pound over 5 lbs.</li>
+                    <li>Create a <code>getTotalPrice</code> method that uses your other methods to return a total price.</li>
+
+                    <li>Create three display methods to display the data in each of the following formats:</li>
+
+                    <ul>
+                        <li>Advertising Profile: Should display the name, base price, and description in this format:
+<div class="code">
+Finding Peace, Happiness, and Joy by Richard G. Scott - $14.49
+(Elder Scott powerfully outlines the truths we need to understand and
+embrace in order to experience the gifts of peace, happiness, and joy.)
+</div>
+                        </li>
+                        <li>Inventory Line Item: Should display the base price, name, and weight in this format:
+<div class="code">
+$14.49 - Finding Peace, Happiness, and Joy by Richard G. Scott - 1.5 lbs
+</div>
+                        </li>
+                        <li>Receipt: Should display the name, base price, sales tax, shipping cost, and total price, in this format:
+<div class="code">
+Finding Peace, Happiness, and Joy by Richard G. Scott
+  Price:         $   14.49
+  Sales tax:     $    0.87
+  Shipping cost: $    2.00
+  Total:         $   17.36
+</div>
+                        </li>
+                    </ul>
+                    <li>Create any other methods that you see fit to help in your program.</li>
+                    <li>Create a main function that creates a new Product, calls its prompt method. Then have main prompt the user for which kind of display to see (advertising profile, an inventory line item, or a receipt for this product) and call the appropriate method.</li>
+                </ol>
+            </p>
+
+            <p>A few other guidelines / hints:</p>
+            <ul>
+                <li>Make sure your program is separated into different files (one for the class definition, one for the bodies of its functions, and one for main).</li>
+                <li>Your prompt function should reprompt for the price if text or a number less than 0 is provided.</li>
+                <li>Dollar amounts should be shown to 2 decimal places, and weights should be shown to 1 decimal place. This can be done using the following code (and include the iomanip library):
+
+<div class="code">
+cout.setf(ios::fixed);
+cout.setf(ios::showpoint);
+cout.precision(2);
+</div>
+
+                </li>
+                <li>Don't forget to put this assignment in its own directory and start with the files provided.</li>
+                <li>You may notice that your "main" in this case is pretty simple and straightforward, and doesn't necessarily do anything very impressive. This is just fine, because we are more concerned with building a library (i.e., our Product class) that can be used for other projects (e.g. next week's assignment :-) ).
+                <li>Get started early, there are a few tricky aspects to this assignment.</li>
+            </ul>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+
+<div class="code">
+Enter name: <span class="user-input">Finding Peace, Happiness, and Joy by Richard G. Scott</span>
+Enter description: <span class="user-input">Elder Scott powerfully outlines the truths we need to understand and
+embrace in order to experience the gifts of peace, happiness, and joy.</span>
+Enter weight: <span class="user-input">1.5</span>
+Enter price: <span class="user-input">14.49</span>
+
+Choose from the following options:
+1 - Advertising profile
+2 - Inventory line item
+3 - Receipt
+
+Enter the option that you would like displayed: <span class="user-input">1</span>
+
+Finding Peace, Happiness, and Joy by Richard G. Scott - $14.49
+(Elder Scott powerfully outlines the truths we need to understand and
+embrace in order to experience the gifts of peace, happiness, and joy.)
+</div>
+
+        <p>Here is another example:</p>
+<div class="code">
+Enter name: <span class="user-input">Dry Erase Markers</span>
+Enter description: <span class="user-input">Perfect for any whiteboard!</span>
+Enter weight: <span class="user-input">0.5</span>
+Enter price: <span class="user-input">5.99</span>
+
+Choose from the following options:
+1 - Advertising profile
+2 - Inventory line item
+3 - Receipt
+
+Enter the option that you would like displayed: <span class="user-input">2</span>
+
+$5.99 - Dry Erase Markers - 0.5 lbs
+</div>
+
+<p>And one more:</p>
+<div class="code">
+Enter name: <span class="user-input">Bowling Ball</span>
+Enter description: <span class="user-input">Knock 'em all down!</span>
+Enter weight: <span class="user-input">14</span>
+Enter price: <span class="user-input">40</span>
+
+Choose from the following options:
+1 - Advertising profile
+2 - Inventory line item
+3 - Receipt
+
+Enter the option that you would like displayed: <span class="user-input">3</span>
+
+Bowling Ball
+  Price:         $   40.00
+  Sales tax:     $    2.40
+  Shipping cost: $    2.90
+  Total:         $   45.30
+</div>
+
+        <h2>Getting started</h2>
+        <p>A skeleton of the files you will need to create has been provided for you. Please get it and start from there:</p>
+<div class="code">
+mkdir assign04
+cd assign04
+
+cp /home/cs241/assign04/* .
+</div>
+
+        <p>Then don't forget to open the "makefile" and put your own name, teacher, etc. at the top.
+
+        <h2>Other Helpful Commands</h2>
+<div class="code">
+g++ product.cpp assign04.cpp
+
+tar -cf assign04.tar makefile *.cpp *.h
+
+testBed cs241/assign04 assign04.tar
+submit assign04.tar
+</div>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

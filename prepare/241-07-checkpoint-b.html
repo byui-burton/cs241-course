@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>07 Prepare : Checkpoint B - Pointers and Dynamic Allocation</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-07-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>This checkpoint is intended to help you practice the the syntax of pointers and dynamic allocation.</p>
+
+        <h3>Background</h3>
+        <p>The memory of your program is divided into two areas the "stack" and the "heap". The stack is where information about your function calls and their local variables are stored, whereas the heap is where data is stored when it is dynamically allocated (think pointers).</p>
+
+        <p>Among other differences, the stack does not typically have as much space and you can cause a stack overflow or segmentation fault by either calling too many functions or by storing too many large values in local stack variables. Thus, a large array or something similar should be dynamically allocated so that it is stored on the heap.</p>
+
+        <h3>Scenario</h3>
+        <p>Assume that we are writing a game like Minecraft. We will have a World class that stores a 3-dimensional array of "Voxels". A voxel is a simple element of volume (think Pixel, but 3D). Your task for this assignment is to create a world, set some Voxels and display them.</p>
+
+        <p>You are provided with a simple class for a Voxel that stores a RGB color value, as well as a character code for the type of element.</p>
+
+        <p>You are also provided with a simple class for a World that stores a 3-Dimensional array, named boxes, that stores, 100 x 100 x 100 different Voxel objects. Because this large array is stored directly in the World class, you should not create a World object as a normal local stack variable. Depending on your environment this would likely even cause a segmentation fault. Instead you should use a Pointer to a world object, and dynamically allocate it using the "new" command.</p>
+
+        <p>As a side note, for all the reasons mentioned, a better design for the world class would be to have it contain a dynamically allocated array, and only store the pointer internally. But this is a little harder for us to practice...</p>
+
+        <h2>Instructions</h2>
+        <p>To help you focus solely on the dynamic allocation and pointer use, a simplistic Voxel and World class have been created for you..<p>
+
+        <p>Start with the provided code by copying the files to your current directory.</p>
+
+<div class="code">
+cp /home/cs241/check07b/* .
+</div>
+        <p>Follow the comments in main (in check07b.cpp) to do the following:
+            <ol>
+                <li>Declare a new World object. Make sure to use pointers and dynamic allocation.</li>
+                <li>Call the "display" method on your World object.</li>
+                <li>Code is in place to create a Voxel for air. Call the setBox method on your World object to set it at position: (50, 60, 70).</li>
+                <li>Code is in place to create a Voxel for grass. Call the setBox method on your World object to set it at position: (45, 20, 10).</li>
+                <li>Call the displayBox method (on your World object) twice to diplay the two Voxels you just set.</li>
+                <li>Finally, make sure to free up the memory taken by your World object by deleting it.</li>
+            </ol>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Starting Program.
+Initializing the world and connecting to server...
+Hello from your world.
+The value at (50, 60, 70) is: (180, 200, 255) - A
+The value at (45, 20, 10) is: (25, 255, 50) - G
+Disconnecting from the server and saving state...
+Ending Program.
+</div>
+
+        <h2>Examples of Pointers and Classes</h2>
+        <p>Recall that when declaring a pointer to a simple data type, we use syntax such as:</p>
+
+<div class="code">
+int* p;
+p = new int;
+
+// or simply
+
+int* p = new int;
+</div>
+        <p>And we access the value using the <code>*</code> operator:</p>
+<div class="code">
+cout &lt;&lt; "The value of my pointer is: " &lt;&lt; *p;
+</div>
+
+        <p>Similarly, when working with custom data types (e.g., our own classes), we declare them in the same manner:</p>
+<div class="code">
+Money* pMoney;
+pMoney = new Money;
+
+// or simply
+
+Money* pMoney = new Money;
+</div>
+
+    <p>Then, the real difference comes when working with member variables and functions. Recall from your reading about structs that the <code>*</code> operator has lower precedence than the <code>.</code> operator. Thus, we cannot say: "<code>*m.getDollars()</code>" we would have to say: "<code>(*m).getDollars()</code>". To make this syntax easier, C++ introduced the <code>-></code> operator which does the <code>*</code> and the <code>.</code> operations automatically. Thus we could use our class as follows:</p>
+
+<div class="code">
+Money* pMoney = new Money;
+pMoney->setDollars(3);
+pMoney->setCents(50);
+pMoney->display();
+
+// or for variables:
+pMoney->aPublicVariable = 18;
+
+// similarly constructors can be called in the new command:
+Money* pOther = new Money(3, 50);
+</div>
+        <p>Then, of course, we need to free our memory when we are done:</p>
+<div class="code">
+delete pMoney;
+delete pOther;
+</div>
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using pointers and some of the methods mentioned, but this will not help you understand the concept, and you will not receive credit if you do not follow the instructions.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+tar -cf check07b.tar makefile *.cpp *.h
+testBed cs241/check07b check07b.tar
+submit check07b.tar
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

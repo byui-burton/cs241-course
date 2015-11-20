@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>01 Prepare : Checkpoint B</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-02-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you review the very basics of C++ programming.
+        </p>
+
+        <h2>Instructions</h2>
+            <p>Write a C++ program that takes a list of numbers and displays each one that is divisible by 3. Specifically, you should:
+
+                <ol>
+                    <li>Write a function, getSize, that prompts for the size of the list, or the number of integers to be read in.</li>
+                    <li>Write a function, getList, that accepts an array of integers and a count. It should prompt the user for the list of numbers and store them in the passed array.</li>
+                    <li>Write a function, displayMultiples that accepts the array and its size. It should loop through each element in the array and display it if it is divisible by 3.</li>
+                    <li>You may assume that the size of the list will always be less than 20.</li>
+                </ol>
+            </p>
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+        <div class="code">
+Enter the size of the list: <span class="user-input">5</span>
+Enter number for index 0: <span class="user-input">2</span>
+Enter number for index 1: <span class="user-input">3</span>
+Enter number for index 2: <span class="user-input">4</span>
+Enter number for index 3: <span class="user-input">5</span>
+Enter number for index 4: <span class="user-input">6</span>
+
+The following are divisible by 3:
+3
+6
+        </div>
+
+        <h2>Testbed</h2>
+        <p>
+            A auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+
+        </p>
+
+        <p>For example:</p>
+        <div class="code">testBed cs241/check01b myCheck01b.cpp</div>
+
+        <h2>Submission</h2>
+        <p>
+            After completing your assignment and verifying that it passes the testbed script, please submit it via the Linux Lab submit system. In the header, it should have, "Checkpoint 01b, Arrays".
+        </p>
+        <p>The submit command would be something like:</p>
+
+
+        <div class="code">submit myCheck01b.cpp</div>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

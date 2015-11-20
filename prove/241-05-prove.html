@@ -1,0 +1,201 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>05 Prove : Assignment - Ecommerce Product Inventory, Part II</h1>
+
+
+        <h2>Overview</h2>
+        <p>Having product lists and a way to compute shipping and total costs from your last project has immensely helped your growing on-line business, but to benefit even more from your program, you need to add customers.</p>
+        <p>This week, you will build on your Product library from last week, and create classes to manage orders and customers as well.</p>
+
+
+        <h2>Instructions</h2>
+            <p>
+                Write a C++ program according to the following:
+
+                <ol>
+                    <li>Create the following classes (as specified below):
+                        <ul>
+                            <li><code>Address</code> - Contains a customer's address</li>
+                            <li><code>Customer</code> - Contains a name and an <code>Address</code></li>
+                            <li><code>Product</code> - From last week (we will add a few methods to it)</li>
+                            <li><code>Order</code> - Contains a <code>Product</code>, quantity, and a <code>Customer</code></li>
+                        </ul>
+                    </li>
+            <h3>Address Class</h3>
+                    <li>Create a class for an Address that has the following private data members:
+                        <ul>
+                            <li><code>street : string</code></li>
+                            <li><code>city : string</code></li>
+                            <li><code>state : string</code></li>
+                            <li><code>zip : string</code></li>
+                        </ul>
+                        It should also contain the following public methods:
+                        <ul>
+                            <li><code>getStreet</code> / <code>setStreet</code></li>
+                            <li><code>getCity</code> / <code>setCity</code></li>
+                            <li><code>getState</code> / <code>setState</code></li>
+                            <li><code>getZip</code> / <code>setZip</code></li>
+                            <li><code>prompt</code> - Prompts for each of the four values</li>
+                            <li><code>display</code> - Displays the address in the format:</li>
+<div class="code">
+street
+city, state zip
+</div>                            
+                        </ul>
+                        It should also have the following constructors:
+
+                        <ul>
+                            <li>Default - Set the street to "unknown", the zip to "00000", and the other data members to "".</li>
+                            <li>Non-default - Accept 4 strings (street, city, state, zip) and set each of the values.</li>
+                        </ul>
+                    </li>
+            <h3>Customer Class</h3>
+                    <li>Create a class for a Customer that has the following private data members:
+                        <ul>
+                            <li><code>name : string</code></li>
+                            <li><code>address : Address</code></li>
+                        </ul>
+                        It should also contain the following public methods:
+                        <ul>
+                            <li><code>getName</code> / <code>setName</code></li>
+                            <li><code>getAddress</code> / <code>setAddress</code></li>
+                            <li><code>prompt</code> - Prompts for the name, then calls the address's prompt method.</li>
+                            <li><code>display</code> - Displays the name, then calls the address's display method. Thus the format is:</li>
+<div class="code">
+name
+street
+city, state zip
+</div>                            
+
+                        </ul>
+                        It should also have the following constructors:
+
+                        <ul>
+                            <li>Default - Set the name to "unspecified" and uses the address's default constructor.</li>
+                            <li>Non-default - Accept a name and an address object.</li>
+                        </ul>
+                    </li>
+            <h3>Product Class</h3>
+
+                    <li>Add the following to your <code>Product</code> class:
+                        <ul>
+                            <li><code>getName</code> / <code>setName</code></li>
+                            <li><code>getDescription</code> / <code>setDescription</code></li>
+                            <li><code>getBasePrice</code> / <code>setBasePrice</code></li>
+                            <li><code>getWeight</code> / <code>setWeight</code></li>
+
+                            <li>Default Constructor- Set the name to "none", description to "", and the weight and the base price to 0.</li>
+                            <li>Non-default - Accepts all four of these values (name, description, basePrice, weight) and sets them.</li>
+                        </ul>
+                    </li>                    
+            <h3>Order Class</h3>
+                    <li>Create a class for an Order that has the following private data members:
+                        <ul>
+                            <li><code>product : Product</code></li>
+                            <li><code>quantity : int</code></li>
+                            <li><code>customer : Customer</code></li>
+                        </ul>
+                        It should also contain the following public methods:
+                        <ul>
+                            <li><code>getProduct</code> / <code>setProduct</code></li>
+                            <li><code>getQuantity</code> / <code>setQuantity</code></li>
+                            <li><code>getCustomer</code> / <code>setCustomer</code></li>
+                            <li><code>getShippingZip</code> - Returns the Zip from the customer's address</li>
+                            <li><code>getTotalPrice</code> - Returns the total price of the product (including tax and shipping) multiplied by the quantity.</li>
+                            <li><code>displayShippingLabel</code> - Calls the customer's display method, resulting in this format:</li>
+<div class="code">
+name
+street
+city, state zip
+</div>                            
+                            <li><code>displayReceipt</code> - Displays the customers name followed by the displayReceipt information from the product, in this format (substituting for the correct values):</li>
+<div class="code">
+customerName
+productName
+  Price:         $   xx.xx
+  Sales tax:     $    x.xx
+  Shipping cost: $    x.xx
+  Total:         $   xx.xx</div>                            
+                        </ul>
+                        It should also have the following constructors:
+
+                        <ul>
+                            <li>Default - Set the quantity to 0 and uses the product and customer's default constructors.</li>
+                            <li>Non-default - Accepts a Product, quantity, and Customer</li>
+                        </ul>
+                    </li>                    
+            <h3>Main</h3>
+                    <li>For this assignment, a main function will be provided for you. It expects the classes and methods to work as defined above. A few things in this regard:</li>
+                    <ul>
+                        <li>You should not change main---At least for your final submission. Feel free to comment out various sections of code as you develop the program, just make sure they all make it back in for the finished product.</li>
+                        <li>This is done to help reinforce the idea that you are making a "library" that other programmers could use. We agree upon what classes there are, and how they should interact with the outside world, but the inner details are up to you.</li>
+                        <li>This idea of having a driver program that exercises all the methods of your class is very similar to a concept of Unit Testing, that is extremely common and important in industry.</li>
+                    </ul>
+
+                </ol>
+            </p>
+
+            <p>A few other guidelines / hints:</p>
+            <ul>
+                <li>Make sure to start with the files provided, and to put this assignment in its own directory.</li>
+                <li>Make sure your classes definitions are all in the .h files, but your method bodies are in the .cpp files. Yes, you will have a lot of files for this assignment!</li>
+                <li>Get started early, there are a few tricky aspects to this assignment.</li>
+            </ul>
+
+<!--
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+-->
+
+        <h2>Getting started</h2>
+        <p>A skeleton of the files you will need to create has been provided for you. Please get it and start from there:</p>
+<div class="code">
+mkdir assign05
+cd assign05
+
+cp /home/cs241/assign05/* .
+</div>
+        Then copy over your product class from last week:
+<div class="code">
+(Assuming you are in the assign05 directory, and that last week's assignment is in the assign04 directory.)
+
+cp ../assign04/product.* .
+</div>
+        <p>Then don't forget to open the "makefile" and put your own name, teacher, etc. at the top.
+
+        <h2>Other Helpful Commands</h2>
+<div class="code">
+g++ address.cpp customer.cpp product.cpp order.cpp assign05.cpp
+(or alternatively: g++ *.cpp)
+
+tar -cf assign05.tar makefile *.cpp *.h
+
+testBed cs241/assign05 assign05.tar
+submit assign05.tar
+</div>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

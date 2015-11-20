@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>10 Prepare : Checkpoint A - Vectors</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-10-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of vectors.
+        </p>
+       
+        <h2>Instructions</h2>
+
+        <p>For this assignment, you will create two vectors, one a vector of ints and one a vector of strings. The user will fill each one with data, and then your program will display the values.</p>
+
+            <ol>
+                <li>Copy the template file /home/cs241/check10a.cpp to your working directory.</li>
+                <li>For this assignment, in order to focus our practice on the syntax of the vectors, you can put all of your code in main.
+                </li>
+
+                <li>Create and display a vector of ints as follows:</li>
+                <ol>
+                    <li>Create a vector of ints.</li>
+                    <li>Prompt the user for ints until they enter 0, and store them in your vector.</li>
+                    <li>Loop through all the numbers in the vector and display each one.</li>
+                    <li>When you loop through, make sure to use the size of your vector in your condition (not a separate integer from above).</li>
+                </ol>
+
+                <li>Create and display a vector of strings as follows:</li>
+                <ol>
+                    <li>Create a vector of strings.</li>
+                    <li>Prompt the user for strings until they enter "quit", and store them in your vector.</li>
+                    <li>Loop through all the strings in the vector and display each one.</li>
+                    <li>When you loop through, make sure to use the size of your vector in your condition (not a separate integer from above).</li>
+                </ol>
+
+                <li>You do not have to use iterators for this assignment (but you are welcome to if you would like). It can be done using the <code>[]</code> operator.
+            </ol>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Enter int: <span class="user-input">3</span>
+Enter int: <span class="user-input">12</span>
+Enter int: <span class="user-input">4</span>
+Enter int: <span class="user-input">0</span>
+Your list is:
+3
+12
+4
+
+Enter string: <span class="user-input">The</span>
+Enter string: <span class="user-input">quick</span>
+Enter string: <span class="user-input">brown</span>
+Enter string: <span class="user-input">fox</span>
+Enter string: <span class="user-input">jumps</span>
+Enter string: <span class="user-input">over</span>
+Enter string: <span class="user-input">the</span>
+Enter string: <span class="user-input">lazy</span>
+Enter string: <span class="user-input">dog</span>
+Enter string: <span class="user-input">quit</span>
+Your list is:
+The
+quick
+brown
+fox
+jumps
+over
+the
+lazy
+dog
+</div>
+
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using vectors, but this will not help you understand the concept, and you will not receive credit if you do not follow the instructions.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+testBed cs241/check10a check10a.cpp
+submit check10a.cpp
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

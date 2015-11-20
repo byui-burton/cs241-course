@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>04 Teach : Team Activity - Classes</h1>
+
+
+        <p>This activity is designed to be completed during class. You may finish any or all of it after class (either individually or with others) as you desire.
+        </p>
+
+        <h1>Overview</h1>
+        <p>As a team, write a class to represent a rational number (i.e., a fraction).</p>
+
+        <h1>Instructions</h1>
+        <p>Divide your teams into groups of 2-3. You should all work together on one laptop, then make sure everyone in your team gets a copy of the work that you complete.</p>
+        
+        <h3>Core Requirements</h3>
+        <ol>
+
+            <li>Put your class in separate files:</li>
+                <ul>
+                    <li>rational.h - Contains the class definition / prototypes</li>
+                    <li>rational.cpp - Contains the bodies of the functions</li>
+                    <li>ta04.cpp - Contains main</li>
+                </ul>
+            <li>A skeleton of these files is provided for you (plus a makefile to tell TestBed how to build it). Please create a new directory, and copy them over as follows:</li>
+<div class="code">
+mkdir ta04
+cd ta04
+
+cp /home/cs241/ta04/* .
+</div>
+            <li>Add the following data members: int top and int bottom.</li>
+            <li>Add the following functions. Make sure to put their prototypes in the .h file, and their bodies in the .cpp file.</li>
+            <ol>
+                <li><code>prompt</code> - Ask the user to enter the top and the bottom. Save these in the member variables.</li>
+                <li><code>display</code> - Display the values in the format: "top/bottom".</li>
+                <li><code>displayDecimal</code> - Display the value of the rational number in decimal format.</li>
+            </ol>
+
+            <li>In ta04.cpp, write a main function that creates a rational number, prompts the user for its values, and displays it.</li>
+            <li>Compile your program using: <code>g++ rational.cpp ta04.cpp</code>  (notice rational.h is not in that list).</li>
+            <li>Create tar file for your project using: <code>tar -cf ta04.tar makefile *.h *.cpp</code></li>
+            <li>Run your tar file against the testBed for this activity using: <code>testBed cs241/ta04 ta04.tar</code></li>
+
+            <li>Show your code to your instructor to "pass it off"</li>
+        </ol>
+
+        <h3>Stretch Challenges</h3>
+        <p> After completing the above steps. Make sure that everyone on the entire team is to this point and understands the material. Then, if you have time, move onto the following stretch challenges.</p>
+
+        <ol>
+            <li>Change your <code>display</code> function so that if the value is an improper fraction (larger on top than bottom), it display it as a mixed number, such as: "1 1/4", rather than "5/4".</li>
+            <li>Write a <code>multiplyBy</code> function that accepts another rational number and changes the value of the current object (multiply the two numerators to get the new numerator and the two denominators to get the new denominator). Modify your main function to demonstrate it.</li>
+            <li>Create a <code>reduce</code> function, that reduces rational numbers to their most basic equivalent form (e.g., 2/6 becomes 1/3). Modify your main function to demonstrate it.</li>
+
+
+        </ol>
+
+
+        <h1>Completion</h1>
+        <p>By following the steps above, you should complete and report on the following:</p>
+
+        <p>Core Requirements:</p>
+
+        <ol>
+            <li>prompt</li>
+            <li>display and displayDecimal</li>
+            <li>Code compiles, tar file created, passed testbed</li>
+        </ol>
+
+        <p>Stretch Challenges: (Make sure everyone on your team is done with their core features before working on these.)</p>
+
+        <ol>
+            <li>Mixed numbers</li>
+            <li>multiplyBy</li>
+            <li>reduce</li>
+        </ol>
+
+        <h1>Submission</h1>
+        <p>You do not need to submit your program (just make sure that everyone has a copy of it for their reference). Instead, answer the accompanying questions in the I-Learn quiz.</p>
+
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

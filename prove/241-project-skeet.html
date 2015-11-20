@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>CS 241 Project - Skeet</h1>
+
+
+        <h2>Overview</h2>
+        <p>Skeet or Trap Shooting is a game played by hunters where a clay pigeon is ejected from a throwing device and a marksman attempts to shoot them with a shotgun. Sadly, many clay pigeons (also called "targets" or "birds") are lost during the typical game. Though this sport is an Olympic event and played the world over, it is far too dangerous to play in the computer lab. Therefore, we will build a safer version where nothing but pixels are shot.</p>
+
+        <p>This program will be written using the same simplified OpenGL libraries as the other projects of this semester. See <a href="../intro/241-opengl.html" target="_BLANK">this link</a> for information about how to configure your environment for OpenGL development..
+        </p>
+
+        <h2>Instructions</h2>
+
+        <p>Your assignment is to create a game that simulates skeet shooting. On the left side of the screen, clay pigeons are randomly shot across the screen. On the bottom right corner of the screen, the "marksman" (the term is used very loosely here) aims his rifle. Each match ends when either a bullet from the rifle destroys the pigeon or when the pigeon exits the screen (called "birds away").</p>
+
+        <p>A working version of the game is available to you at:</p>
+
+<div class="code">
+/home/cs241/skeet.out
+</div>
+
+        <p>The following shows the game in action:</p>
+
+        <img src="../attachments/241-prove-skeet1.jpg" alt="Skeet Game" title="Skeet Game"/>
+
+        <h2>Game Rules and Specification</h2>
+        <ol>
+            <li>Whenever there is no pigeon on the screen, a new one is created at random.</li>
+            <li>To make it more of a challenge, there are three types of pigeons:</li>
+            <ol>
+                <li>Standard Bird</li>
+                <ul>
+                    <li>Rendered as a circle with a 20px diameter.</li>
+                    <li>A <code>drawCircle</code> function is included in the uiDraw library to assist you.</li>
+                    <li>Destroyed with one hit.</li>
+                    <li>1 Point is awarded for hitting it.</li>
+                </ul>
+                <li>Tough Bird</li>
+                <ul>
+                    <li>Rendered as a circle with a number inside of it.</li>
+                    <li>A <code>drawToughBird</code> function is included in the uiDraw library to assist you.</li>
+                    <li>The Tough Bird should move more slowly than the others as defined below.</li>
+                    <li>It takes 3 hits to destroy this bird.</li>
+                    <li>1 Point is awarded for each hit.</li>
+                    <li>A bonus of 2 points is awarded if it is destroyed. (3 points per hit, plus the 2 point bonus, means 5 points can be earned.)</li>
+                </ul>
+                <li>Sacred Bird</li>
+                <ul>
+                    <li>Rendered as a star.</li>
+                    <li>A <code>drawSacredBird</code> function is included in the uiDraw library to assist you.</li>
+                    <li>This bird should not be hit.</li>
+                    <li>It is destroyed with a single hit.</li>
+                    <li>A penalty of 10 points is lost if this bird is hit.</li>
+                </ul>
+            </ol>
+            <li>The pigeon type, direction, velocity, and timing to release (delay) are random according to the following constraints:</li>
+            <ul>
+                <li>The initial position of the bird is anywhere along the left side the screen</li>
+                <li>If the bird starts on the top half of the screen, it should have a generally downward velocity (down and to the right at amounts defined below).</li>
+                <li>If the bird starts on the bottom half of the screen, it should have a generally upward velocity (up and to the right at amounts defined below).</li>
+                <li>The horizontal component of the velocity should be between 3 and 6 pixels/frame.</li>
+                <li>The vertical component of the velocity should be between -4 and +4 pixels/frame (positive or negative depending on whether it starts on the top or bottom half of the screen).</li>
+                <li>To give the user a greater chance to hit the Tough Bird, it should move more slowly than the others. In particular, its horizontal velocity should be taken from the range: 2 to 4, and it's vertical velocity from the range -3 to +3.
+                <li>A delay of up to 1 second should be introduced before the first bird is released or after each round before the next one is released.</li>
+            </ul>
+            <li>Rifle</li>
+            <ul>
+                <li>Rendered as a rectangle.</li>
+                <li>A <code>drawRect</code> function is included in the uiDraw library to assist you.</li>
+                <li>The aim is controlled with the left and right arrows.</li>
+                <li>Each arrow press should change the aim 3 degrees.</li>
+                <li>The rifle should not be able to aim off the screen. (You must limit its movement to 90 degrees.)</li>
+            </ul>
+            <li>Bullets</li>
+            <ul>
+                <li>Rendered as a dot.</li>
+                <li>A <code>drawDot</code> function is included in the uiDraw library to assist you.</li>
+                <li>There is no limit to the number of bullets.</li>
+                <li>Pressing the space bar fires a new bullet.</li>
+                <li>New bullets should be aimed in the direction of the rifle.</li>
+                <li>Bullets travel at 10 pixels/frame at that angle at which they are fired.</li>
+                <li>Bullets should be removed if they leave the borders of the screen.</li>
+            </ul>
+        </ol>
+
+        <h2>Hints and examples</h2>
+        <p>The following examples may be helpful:</p>
+
+        <ul>
+            <li>A random function is provided in the uiDraw library that makes it easier to use C++ random numbers. You can call it to get a random number from 2 to 4, as follows:</li>
+<div class="code">
+int myNumber = random(2, 4);
+</div>
+            <li>Trig functions (sin, cos, tan) will likely be helpful in determining the x and y components of an angle. They can be found in the <code>cmath</code> library and used as follows. (Note that they expect radians rather than degrees.)</li>
+<div class="code">
+#include &lt;cmath&gt; // used for sin, cos, and M_PI
+...
+const float BULLET_SPEED = 10.0;
+float angle = 60.0;
+...
+float dx = BULLET_SPEED * (-cos(M_PI / 180.0 * angle));
+float dy = BULLET_SPEED * (sin(M_PI / 180.0 * angle));
+</div>
+        </ul>
+
+        <h2>Getting Started</h2>
+        <p>You will use the same framework and classes that you used for MoonLander. You can copy over a fresh set of files from: <code>/home/cs241/skeet/*</code>.</p>
+
+        <p>The finer details: the files in this directory have the same core libraries as used in MoonLander, but do not have a Ground class, and have removed MoonLander specific elements from the Game Class. Also, the makefile has been updated to have Skeet header information, and no longer contains rules to build the ground class. Also, the uiDraw library has been updated so the drawNumber function can now handle negatives.</p>
+
+        <h2>Architectural Design</h2>
+        <p>The entire program will need to be implemented using the principles of encapsulation. Thus, you need to think about the different components (classes) that you will need in the game, and their various actions (methods) and properties (member variables). Before you start programing, you will need to produce UML class diagrams for each of the classes you will be using. Please pay special attention to the design of these components, so they can be as general-purpose as possible. You will want to reuse some of them in future projects.</p>
+
+        <p>In addition, for this project you will be expected to use the principles of inheritance and polymorphism. These are the topics we will be studying over the next two weeks.</p>
+
+        <p>In order to demonstrate correct use of these design principles, in your game class, you need to have a pointer to your base class (e.g., <code>Bird*</code>) that you use to point to each different bird that is created. You should create each new bird via "new" and then make sure to "delete" it when it is dead. In other words, you should NOT have three different bird objects in your game class.</p>
+
+
+        <h2>Assignments</h2>
+        <p>You have three weeks to complete this project, with milestone submissions due at the end of the first and second weeks. Please note that this is a challenging project that will require you to apply several new and challenging topics.</p>
+
+        <p>This project will be broken up into the following assignment submissions:</p>
+
+        <ul>
+            <li><a href="241-design-skeet.html" target="_BLANK">Design : Skeet</a></li>
+            <li><a href="241-08-prove-skeet-milestone.html" target="_BLANK">08 Milestone : Skeet</a></li>
+            <li><a href="241-09-prove-skeet-milestone.html" target="_BLANK">09 Milestone : Skeet</a></li>
+            <li><a href="241-10-prove-skeet.html" target="_BLANK">10 Project : Skeet</a></li>
+        </ul>
+
+        <h2>Expectation to Excel</h2>
+        <p>As explained in more detail in the Project link above, the requirements presented here are simply a base standard. To receive up to 100% on this assignment you are expected to show creativity and excel above and beyond what is specifically required.</p>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

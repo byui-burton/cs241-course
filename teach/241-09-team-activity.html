@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>09 Teach : Team Activity - Polymorphism</h1>
+
+
+        <p>This activity is designed to be completed during class.
+        </p>
+
+        <h1>Overview</h1>
+        <p>BYU-Idaho is having issues with their payroll system and has asked you to create a new one. You quickly recognize that there are two types of employees, hourly employees (those that get paid a certain amount per hour) and salary employees (those that receive an annual salary).</p>
+
+        <p>While these two types of employees have differences, they also have a significant amount in common. So you decide to create a common base class with each of these two types as a separate derived class.</p>
+
+        <h1>Instructions</h1>
+        <p>Divide your teams into groups of 2-3. You should all work together on one laptop, then make sure everyone in your team gets a copy of the work that you complete.</p>
+
+        <p>For this assignment, you will start with a blank file. To keep our focus directly on the virtual functions we are working with, you may put all of our classes in the same file rather than separate .h and .cpp files.
+        </p>
+        
+        <h2>Core Requirements</h2>
+        <ol>
+
+            <li><p>Create a base class <code>Employee</code>, and two derived classes <code>HourlyEmployee</code> and <code>SalaryEmployee</code>, as follows:</p>
+                <ol>
+                    <li><code>Employee</code> should have a <code>string name</code>, a getter and setter for it, and a <code>display</code> function that displays the name.</li>
+                    <li><code>HourlyEmployee</code> should have an <code>int hourlyWage</code> (and getter/setter) and should override the <code>display</code> function to the name and wage in the format: "<code>John - $8/hour</code>".</li>
+                    <li><code>SalaryEmployee</code> should have an <code>int salary</code> (and getter/setter) and should override the <code>display</code> function to the name and salary in the format: "<code>John - $50000/year</code>".</li>
+                    <li>You may also find it beneficial to add non-default constructors to your classes, but that is up to you.</li>
+                </ol>
+            </li>
+
+            <li><p>Create a <code>main</code> function that does the following:</p>
+                <ol>
+                    <li>Declare an array for 3 employees.</li>
+                    <li>Loop through 3 times and prompt the user for an "h" (hourly employee) or an "s" (salary employee).</li>
+                    <li>Then prompt for the <code>name</code> and the <code>hourlyRate</code>/<code>salary</code></li>
+                    <li>For each employee entered, create a new employee of the correct type and add it to the array.</li>
+                </ol>
+            </li>
+
+            <li><p>After adding the employees to the array, have <code>main</code> do the following:</p>
+                <ol>
+                    <li>Loop through the array and call the <code>display</code> method for each employee. Run your program and ensure that the correct one is called.</li>
+                    <li>After the display loop, free up the memory you have allocated for these objects to ensure there are no memory leaks.</li>
+                </ol>
+            </li>
+        </ol>
+
+        <p>When you complete these requirements, show your code to your instructor to "pass it off."</p>
+
+        <h2>Stretch Challenges</h2>
+        <p> After completing the above steps. Make sure that everyone on the entire team is to this point and understands the material. Then, if you have time, move onto the following stretch challenges.</p>
+
+        <ol>
+            <li>
+                <p>Add to your <code>HourlyEmployee</code> a member variable for hours. Then, add a <em><strong>pure</strong></em> virtual function to the employee class for <code>getPayCheck()</code> and override it in the derived classes. For hourly employees, this is calculated as the number of hours multiplied by the hourly rate. For salary employees, this should be the salary divided by 24.</p>
+                <p>In the loop in <code>main</code> that calls the <code>display</code> function, change it to also call the <code>getPayCheck()</code> function and display the pay check amount.</p>
+            </li>
+            <li>Add a regular function (not a member function of any class), "<code>displayEmployeeData</code>" that accepts an employee and calls its <code>display</code> function as well as its <code>getPayCheck()</code> function and displays the value. Then, remove this code from <code>main</code>, and replace it with a call to your new function.</li>
+
+            <li>Change your array to a <code>vector</code> (a dynamically resizing array from the standard template library). Then change your loop to allow for any number of employees to be added, and stop adding them when the user enters a 'q'. Ensure that each of these employees are displayed, and cleaned up appropriately.</li>
+        </ol>
+
+
+        <h1>Submission</h1>
+        <p>You do not need to submit your program (just make sure that everyone has a copy of it for their reference). Instead, answer the accompanying questions in the I-Learn quiz.</p>
+
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

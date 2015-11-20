@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Team Activity 07</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>Teach 07 : Team Activity - Dynamic Allocation and Pointers</h1>
+        <p>You've been hired as an intern at a startup that is developing a new, low-cost hexcopter.</p>
+        <img src="../attachments/hexcopter.jpg" style="width:20%; margin: 0 auto; display:block;"/>
+        <p>You've been asked to write some of the automatated flight controller code, specifically the part that deals with keeping track of the rotational speed of the propellers. The project manager wants you to write a program that can take in a set of propeller speeds, store them as an array of floats sort them from slowest to fastest, then print the sorted values. At first, this sounds kind of easy, but as with most sofware projects, there are some complications. </p>
+        <p>First, the project lead wants this to work with drones with any number of propellers, not just six, so you won't know the number of speeds you'll be dealing with until the program is running.</p>
+        <p>Second, the hexcopter hardware uses a brand new, custom architecture, and as of yet, the STL hasn't been ported to that chip, this means you'll be unable to use a vector.</p>
+        <p>Third, because you need to keep track of which propeller corresponds to which speed, you can't rearrange the elements in the original array.</p>
+        <p>Finally, because the amount of memory you have to work with is extremely limited, you are not allowed to duplicate the array of floats, because in the future they will be storing more complex objects (custom classes) that contain other data.</p>
+        <p>Since this is a complex project, you'll be working on it in various phases.</p>
+        <p>You will be provided with a skeleton ta07.cpp file that contains tests for the program. As you complete each core requirement, remove the comments necessary to test each section.</p>
+
+        <h2>Instructions</h2>
+        <p>Divide into smaller teams of 2-3 and complete this project together. Make sure that you are rotating among the different teammates for who gets to be the "driver" each week.</p>
+        <p>Begin with the file <code>/home/cs241/ta07.cpp</code></p>
+
+        <h2>Core Requirements</h2>
+        <ol>
+            <li><p>Dynamically allocate an array of floats to store the hexcopter propeller speed. Also make sure to delete this array at the end of the program. This means you should:</p>
+            <ol>
+                <li>Prompt for the number of floats (see provided code).</li>
+                <li>Dynamically allocate an array of floats.</li>
+                <li>Prompt the user for floats to fill up the array.</li>
+                <li>Delete the array at the end of main.</li>
+            </ol>
+            </li>
+            <li>
+                <p>Write a function, <code>getValueFromPointer</code>, that accepts a pointer to a float and returns the actual floating point value. (A prototype is provided for you. You need to write the body of this function.)</p>
+                <p>Use this function to print the value of each element in the array.</p>
+            </li>
+            <li>
+                <p>Write a function, <code>getMinValue</code>, that accepts two pointers to floats and returns a pointer to whichever refers to the smallest number. You should use the function you wrote for Part 2 to get the values to compare. (A prototype is provided for you. You need to write the body of this function.)</p>
+                <p>Use this function to print the smaller of the first and last elements of the array.</p>
+            </li>
+        </ol>
+                <h4>Hints / Examples:</h4>
+<pre><code>// Ex: Dynamically allocate an array of ints:
+int arraySize = 12;
+int* myArray = new int[arraySize];</code></pre>
+<hr/>
+<pre><code>// Ex: delete the array from earlier:
+delete [] myArray;</code></pre>
+<hr/>
+<pre><code>// Ex: How to get the address of an array element and store it in a pointer
+int* pZero = &amp;myArray[0];
+
+// Dereference that point to get its value
+cout &lt;&lt; "The value at addresss: " &lt;&lt; pZero &lt;&lt; " is " &lt;&lt; *pZero &lt;&lt; endl;
+</code></pre>
+
+
+
+        <h2>Stretch Challenges</h2>
+            <p>Make sure everyone on your team has completed their core requirements, before moving on to the stretch challenges.</p>
+
+            <ol>
+            <li><p>Create an array of pointers to floats and set it to point to each item in the original array, and display them. This means you need to:</p>
+
+                <ol>
+                    <li>Dynamically allocate an array of float pointers.</li>
+                    <li>Loop through your original array and put a pointer to each of those items into your new array. In other words, spot 0 in the pointer array should have a pointer to spot 0 in the original array, and so forth.</li>
+                    <li>Next, loop through the items in your pointer array, and use the pointer to get the value and display it.</li>
+                    <li>Don't forget to delete your dynamically allocated array at the end of main.</li>
+
+                </ol>
+                <p>The following examples may be helpful in working with an array of pointers:</p>
+                
+<pre><code>// Ex: create an array of pointers to ints:
+int arraySize = 10;
+int **myArray = new int*[arraySize];
+
+// Store the address of an int
+int someInt = 5;
+int* addressOfSomeInt = &amp;someInt;
+
+myArray[0] = addressOfSomeInt;
+
+// Shortcut
+int anotherInt = 11;
+myArray[1] = &amp;anotherInt;
+</code></pre></li>
+
+            <li><p>Write a function to swap elements of the pointer array, swap the first and last values, and display them. This means you need to do the following:</p>
+                <ol>
+                    <li>Write a function that can swap two elements of the pointer array WITHOUT modifying the original array of values.</li>
+                    <li>Use this function to swap the first and last elements of the pointer array.</li>
+                    <li>Loop through the original array of values, display them, and ensure they have not changed.</li>
+                    <li>Loop through the array of pointers and use the pointers to display the values and ensure that the first and last are in a different order.</li>
+                </ol>
+            </li>
+            <li><p>Write a function that uses your swap function and your comparison function to sort an array of pointers from the smallest value (not the smallest pointer address) to the largest value.</p></li>
+            </ol>
+
+        <h2>Submission</h2>
+        <p>When you have finished this activity, please fill out the assessment in I-Learn. You are welcome to complete any additional parts of this activity by yourself or with others after class before submitting the assessment.</p>
+        </article>
+    </div>
+
+
+</body>
+
+</html>

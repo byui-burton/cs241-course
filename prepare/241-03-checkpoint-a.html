@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>03 Prepare : Checkpoint A - Exceptions</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-03-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of Exception Handling.
+        </p>
+
+        <h2>Instructions</h2>
+            <p>Write a C++ program that prompts the user for a positive even number, less than 100. If the user enters a number that is not valid, an exception message should be thrown from one function, caught in another and displayed to the user. In particular
+
+                <ol>
+                    <li>Write a function, <code>prompt</code>, that prompts the user for a number, and returns it.</li>
+                    <li>Have <code>main</code> call this function and then display the result.</li>
+                    <li>In the <code>prompt</code> function, after getting the number from the user, the program should check for the following conditions (in this order) and throw a <code>string</code> with the accompanying message:</li>
+                    <ol>
+                        <li>Condition: Number is less than 0. Message: "The number cannot be negative."</li>
+                        <li>Condition: Number is greater than 100. Message: "The number cannot be greater than 100."</li>
+                        <li>Condition: Number is odd. Message: "The number cannot be odd."</li>
+                    </ol>
+                    <li>Set up <code>main</code> to try the function, and catch a potential exception.</li>
+                    <li>If the exception is thrown. Main should display: "Error: " followed by the content of the exception message that was caught. It should not try display the number returned from the prompt function in this case.</li>
+                </ol>
+            </p>
+            <p>
+                Helpful hints:
+                <ul>
+                    <li>Remember that there is a difference between a string and a character array.</li>
+                    <li>If you are expecting to catch a <code>string</code> but you throw a character array (e.g., <code>throw "message here";</code>) your data types will not line up and you will likely have an uncaught exception resulting in your program terminating with a message about a <code>const char *</code>.</li>
+                    <li>If you are trying to catch a <code>string</code>, you must throw a <code>string</code>, which could be done like so: <code>throw string("message here");</code>.</li>
+                </ul>
+            </p>
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Enter a number: <span class="user-input">4</span>
+The number is 4.
+</div>
+
+<p>Another run may look as follows:</p>
+<div class="code">
+Enter a number: <span class="user-input">-65</span>
+Error: The number cannot be negative.
+</div>
+
+<p>Another run may look as follows:</p>
+<div class="code">
+Enter a number: <span class="user-input">333</span>
+Error: The number cannot be greater than 100.
+</div>
+
+<p>Another run may look as follows:</p>
+<div class="code">
+Enter a number: <span class="user-input">17</span>
+Error: The number cannot be odd.
+</div>
+
+
+        <h2>Testbed</h2>
+        <p>
+            A auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using exceptions, but this will not help you understand the concept, and you will not receive credit if you do not use exceptions.
+        </p>
+
+        <p>For example:</p>
+        <div class="code">testBed cs241/check03a myCheck03a.cpp</div>
+
+        <h2>Submission</h2>
+        <p>
+            After completing your assignment and verifying that it passes the testbed script, please submit it via the Linux Lab submit system. In the header, it should have, "Checkpoint 03a, Exceptions".
+        </p>
+        <p>The submit command would be something like:</p>
+
+        <div class="code">submit myCheck03a.cpp</div>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

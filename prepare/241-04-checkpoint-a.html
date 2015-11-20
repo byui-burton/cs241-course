@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>04 Prepare : Checkpoint A - Classes</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-04-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of creating your own class. For this checkpoint, you need not put your class in its own file, but rather can put all of the code together in one file.
+        </p>
+
+        <h2>Instructions</h2>
+            <p>Write a C++ program that has a class for a book, prompts the user for the book's information, and then displays it back.
+
+                <ol>
+                    <li>Create a class called "Book" with the following private data members:
+                        <ul>
+                            <li>title</li>
+                            <li>author</li>
+                        </ul>
+                    </li>
+                    <li>Add a prompt method (function) to your class, which asks the user to enter a title and an author and stores them in the member variables. (Don't forget to use getline here to allow for spaces.)</li>
+                    <li>Add a display method to your class, which displays the member variables in the format: <code>"the book title" by the author</code>.</li>
+                    <li>For this assignment, you may use only one file and put the class and it's methods (functions) at the top of the file.</li>
+                    <li>Have <code>main</code>:</li>
+                    <ol>
+                        <li>Create a <code>Book</code> object.</li>
+                        <li>Call its <code>prompt</code> method.</li>
+                        <li>Call its <code>display</code> method.</li>
+                    </ol>
+                </ol>
+            </p>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Title: <span class="user-input">The Believing Heart</span>
+Author: <span class="user-input">Bruce C. Hafen</span>
+"The Believing Heart" by Bruce C. Hafen
+</div>
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using classes, but this will not help you understand the concept, and you will not receive credit if you do not use classes.
+        </p>
+
+        <p>For example:</p>
+        <div class="code">testBed cs241/check04a myCheck04a.cpp</div>
+
+        <h2>Submission</h2>
+        <p>
+            After completing your assignment and verifying that it passes the testbed script, please submit it via the Linux Lab submit system. In the header, it should have, "Checkpoint 04a, Classes".
+        </p>
+        <p>The submit command would be something like:</p>
+
+        <div class="code">submit myCheck04a.cpp</div>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

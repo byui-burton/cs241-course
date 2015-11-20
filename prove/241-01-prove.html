@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>01 Prove : Assignment - Genetic Genealogy</h1>
+
+
+        <h2>Overview</h2>
+        <p>
+            Most of your DNA sequence is identical to every other human on the planet. However, certain locations in our DNA sequence are of special interest. These locations, called genetic markers, can be used to uniquely identify someone, predict the likelihood of a genetic disorder, or help trace ancestry through time. 
+        </p><p>
+            In the case of forensics, we are most interested in the genetic markers that are most <em>variable</em>. In other words, that change in every generation. This allows scientists to look at a fragment of DNA at a crime scene and compare it to the same section of DNA in a suspect and see if it matches up.
+         </p><p>
+            In the case of genealogy, we are most interested in the genetic markers that are the most <em>conserved</em>. In other words, those sections of DNA that remain relatively constant in each generation. 
+         </p><p>
+            For tracing ancestry, genetic genealogy services such as Family Tree DNA and 23andMe use between 20 and 700,000 different markers that vary in length between 1 and 300 nucleotides each. By using these services, someone can find long-lost cousins that share the same paternal or maternal ancestry.
+        </p><p>
+            In this assignment, you'll write a C++ program that uses a single genetic marker to allow a user to search for relatives.
+        </p><p>
+            Note that unlike your previous checkpoint assignments, the code you write for your weekly programming assignments will also be evaluated for style and overall design / implementation.
+        </p>
+        <h2>Instructions</h2>
+            <p>
+                Write a C++ program to do the following:
+
+                <ol>
+                    <li>Prompt the user for a 10 character DNA marker sequence.</li>
+                    <li>Prompt the user for a number of potential relatives.</li>
+                    <li>Prompt for the names of each of these potential relatives and store them in an array of strings.</li>
+                    <li>Prompt for the 10 character DNA marker sequence of each of the potential relatives.</li>
+                    <li>Display each potential relative along with the percentage that their sequence matched the target user.</li>
+                </ol>
+                <ul>
+                    <li>In this assignment, DNA marker sequences will be restricted to the standard nucleotide base symbols: A, T, C, and G. No error checking is required for this assignment.</li>
+                    <li>You may assume that no more than 50 relatives will be entered.</li>
+                </ul>
+            </p>
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+        <div class="code">
+Enter your DNA sequence: <span class="user-input">ATTCGACTGA</span>
+Enter the number of potential relatives: <span class="user-input">3</span>
+
+Please enter the name of relative #1: <span class="user-input">Peter</span>
+Please enter the name of relative #2: <span class="user-input">James</span>
+Please enter the name of relative #3: <span class="user-input">John</span>
+
+Please enter the DNA sequence for Peter: <span class="user-input">TTTCGACTGA</span>
+Please enter the DNA sequence for James: <span class="user-input">AAACGTCAGT</span>
+Please enter the DNA sequence for John: <span class="user-input">ATTGCAGTCA</span>
+
+Percent match for Peter: 90%
+Percent match for James: 50%
+Percent match for John: 60%
+        </div>
+
+        <h2>Getting Started</h2>
+        <p>Start your program by copying the template provided at: /home/cs241/template.cpp . Don't forget to include your name, and then also "Assignment 01, Genetic Genealogy" as the assignment number. To copy the template to your current directory, you could use something like the following:</p>
+
+<div class="code">cp /home/cs241/template.cpp myAssign01.cpp</div>
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used as part of the grading of your program.
+
+            However, unlike the Checkpoint programs, your code will also be evaluated for style and overall design / implementation.
+
+        </p>
+
+        <p>For example:</p>
+        <div class="code">testBed cs241/assign01 myAssign01.cpp</div>
+
+        <h2>Check Your Style</h2>
+        <p>
+            Use the stylechecker to verify that your program adheres to our required code conventions.
+        </p>
+        <p>For example:</p>
+        <div class="code">styleChecker myAssign01.cpp</div>
+
+        <h2>Submission</h2>
+        <p>
+            After completing your assignment, verifying that it passes the testbed script, and ensuring that it conforms to our style guidelines, please submit it via the Linux Lab submit system.
+        </p>
+        <p>For example:</p>
+
+        <div class="code">submit myAssign01.cpp</div>
+
+        <h2>Evaluation Criteria</h2>
+        <p>Your assignment will be evaluated according to the following rubric:</p>
+
+        <table>
+            <tr>
+                <th>Points</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>45</td><td>Overall functionality</td>
+            </tr>
+            <tr>
+                <td>15</td><td>Arrays</td>
+            </tr>
+            <tr>
+                <td>15</td><td>Loops</td>
+            </tr>
+            <tr>
+                <td>15</td><td>Modular design (good use of functions)</td>
+            </tr>
+            <tr>
+                <td>10</td><td>Style, code conventions, naming, etc.</td>
+            </tr>
+        </table>
+        </article>
+    </div>
+
+
+</body>
+
+</html>

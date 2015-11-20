@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id="main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+        <article>
+            <h1>02 Teach : Team Activity - Structs</h1>
+            <p>This activity is designed to be completed during class.
+            </p>
+            <h1>Overview</h1>
+            <p>As a team, create a struct for a scripture that contains a book, chapter, and verse. Then, write a function to display a scripture, and one to prompt for a scripture.</p>
+            <h1>Instructions</h1>
+            <p>Divide your teams into groups of 2-3. You should all work together on one laptop, then make sure everyone in your team gets a copy of the work that you complete.</p>
+            <h3>Core Requirements</h3>
+            <ol>
+                <li>Create a <code>struct</code> to hold a <code>Scripture</code>. It should have 3 members, a string for the book name, an integer for the chapter, and an integer for the verse.</li>
+                <li>In main, create a <code>Scripture</code> and assign it the values Alma 31:5. (Make sure it compiles)</li>
+                <li>Write a function: "<code>displayScripture</code>" that displays a given scripture in the form: <code>book chapter:verse</code> (e.g. "<code>John 3:16</code>").</li>
+                <li>Pass your Alma 31:5 scripture to the display function, run the program and make sure it appears correctly on the screen.</li>
+                <li>Write a function: "<code>promptScripture</code>" that prompts the user for a book, chapter, verse, and assigns it to a new scripture.</li>
+                <li>Change main so that it calls <code>promptScripture</code> and then passes the struct to <code>displayScripture</code>. Try different values and make sure they display correctly</li>
+                <li>Show your code to your instructor to "pass it off"</li>
+            </ol>
+            <h3>Stretch Challenges</h3>
+            <p> After completing the above steps. Make sure that everyone on the entire team is to this point and understands the material. Then, if you have time, move onto the following stretch challenges.</p>
+            <ol>
+                <li>Change your program so that it handles books with spaces in them (e.g., "1 Nephi").</li>
+                <li>Change your program so that it creates an array of 3 scriptures. Then have it loop through and prompt the user for each of these scriptures, filling the array. Finally have it loop through and display each of these scriptures.</li>
+                <li>Create an additional struct called, Insight that has two elements, a Scripture (our struct from above), and a string message that contains insight about that scripture. Add a promptInsight and displayInsight function that in turn call the functions from above.</li>
+            </ol>
+            <h1>Completion</h1>
+            <p>By following the steps above, you should complete and report on the following:</p>
+            <p>Core Requirements:</p>
+            <ol>
+                <li><code>Scripture</code> struct created</li>
+                <li><code>displayScripture</code> function</li>
+                <li><code>promptScripture</code> function</li>
+            </ol>
+            <p>Stretch Challenges: (Make sure everyone on your team is done with their core features before working on these.)</p>
+            <ol>
+                <li>Book handles spaces</li>
+                <li>Array of 3 Scriptures</li>
+                <li>Insight struct (that contains a Scripture)</li>
+            </ol>
+            <h1>Submission</h1>
+            <p>You do not need to submit your program (just make sure that everyone has a copy of it for their reference). Instead, answer the accompanying questions in the I-Learn quiz.</p>
+        </article>
+    </div>
+</body>
+
+</html>

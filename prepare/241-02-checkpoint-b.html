@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>02 Prepare : Checkpoint B - Complex Numbers</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-02-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the mechanics of structs in C++.
+        </p>
+
+        <h2>Instructions</h2>
+            <p>
+                Write a C++ program according to the following:
+            </p>
+                <ol>
+                    <li>Start with the skeleton of a file at: /home/cs241/check02b.cpp</li>
+                    <li>Create a struct for a Complex number that has a real part (a double) and an imaginary part (a double).</li>
+                    <li>Write a function, prompt, to prompt the user for the real and imaginary parts of complex number, and have it return a Complex struct.</li>
+                    <li>Write a function, display, that accepts a Complex struct and displays it in the format: "2.1 + 3.2i". You need not worry about handling zero or negatives at this point.</li>
+                    <li>Fill in the body for the function, addComplex, that accepts two complex numbers and returns their sum. Remember that when adding complex numbers, the real parts are added and the imaginary parts are added.</li>
+                </ol>
+            <p>Then, the program should do the following:</p>
+                <ol>
+                    <li>Declare two objects of type Complex called c1 and c2.</li>
+                    <li>Call your prompt function twice to fill in the values for c1 and c2.</li>
+                    <li>Call your addComplex function to produce the sum.</li>
+                    <li>Call your display function to display the sum.</li>
+                </ol>
+            </p>
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Real: <span class="user-input">3</span>
+Imaginary: <span class="user-input">5</span>
+
+Real: <span class="user-input">2.1</span>
+Imaginary: <span class="user-input">6.2</span>
+
+The sum is: 5.1 + 11.2i
+</div>
+
+
+        <h2>Getting Started</h2>
+        <p>Start your program by copying the skeleton provided at: /home/cs241/check02b.cpp . Don't forget to include your name, and then also "Checkpoint 02b, Complex Numbers" as the assignment number. To copy the template to your current directory, you could use something like the following:</p>
+
+<div class="code">cp /home/cs241/check02b.cpp myCheck02b.cpp</div>
+
+        <h2>Testbed</h2>
+        <p>
+            A auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+
+        </p>
+        <p>
+            Please note that it is possible to pass the testbed without using structs, but this would not help you learn, and you will not receive credit if you do not use structs.
+        </p>
+
+        <p>For example:</p>
+        <div class="code">testBed cs241/check02b myCheck02b.cpp</div>
+
+        <h2>Submission</h2>
+        <p>
+            After completing your assignment and ensuring that it conforms to our style guidelines, please submit it via the Linux Lab submit system.
+        </p>
+        <p>For example:</p>
+
+        <div class="code">submit myCheck02b.cpp</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

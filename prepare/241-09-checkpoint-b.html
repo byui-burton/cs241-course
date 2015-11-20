@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>09 Prepare : Checkpoint B - Pure Virtual Functions</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-09-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of pure virtual functions.
+        </p>
+
+        <p>For this checkpoint, you will create a base class for a <code>Shape</code>, and two derived classes for specific shapes. The base class will have a pure virtual function, <code>getArea()</code> that is overriden by each derived class. You will then create a certain number of new shapes, as specified by the user, put them in the same array, and loop through and display the area of each.
+
+        <h2>Instructions</h2>
+
+        <p>For this assignment, because the classes we are going to create are so small and simplistic, and to help you focus on just the elements of inheritance and virtual functions, rather than the mechanics of creating lots of files, you will put all of your classes at the top of the main file, rather than creating separate .h and .cpp files like we would for larger, real-world classes.</p>
+
+            <ol>
+                <li>Copy the template file /home/cs241/check09b.cpp to your working directory.</li>
+                <li>A <code>Shape</code> class has been provided that has a name with its getter and setter. You need to add a <em>pure</em> virtual function <code>getArea()</code>, thus it will look as follows:</li>
+
+                <div class="class-diagrams">
+                    <table class="table-class-diagram">
+                        <tr><th>Shape</th></tr>
+                        <tr><td>-name : string</td></tr>
+                        </tr>
+                        <tr class='class-diagram-spacer'><td></td></tr>
+                        <tr><td>+getName() : string</td></tr>
+                        <tr><td>+setName(string) : void</td></tr>
+                        <tr><td>+<em>getArea</em>() = 0 : float</td></tr>
+                    </table>
+                </div>
+
+                <li>A <code>Circle</code> class has been provided with a radius, its getter/setter and a destructor. You need to add the following:</li>
+                <ol>
+                    <li>Add a <code>Circle</code> constructor, and in it set the <code>name</code> variable to be "Circle".</li>
+                    <li>Redefine the <code>getArea()</code> method to return "<code>3.14 * radius * radius</code>".</li>
+                </ol>
+
+                <li>A <code>Rectangle</code> class has been provided with a length and width, their getters/setters and a destructor. You need to add the following:</li>
+                <ol>
+                    <li>Add a <code>Rectangle</code> constructor, and in it set the <code>name</code> variable to be "Rectangle".</li>
+                    <li>Redefine the <code>getArea()</code> method to return "<code>length * width</code>".</li>
+                </ol>
+
+<!--                 <li>Next create a <code>Rectangle</code> class according to the following:</li>
+                <ol>
+                    <li>Include member variables: <code>float length</code> and <code>float width</code>.</li>
+                    <li>Include a getters and setters for each of these variables.</li>
+                    <li>In the <code>Rectangle</code> constructor, set the <code>name</code> variable to be "Rectangle".</li>
+                    <li>Redefine the <code>getArea()</code> method to return "<code>length * width</code>".</li>
+                    <li>As before, include the following destructor:</li>
+<div class="code">
+~Rectangle()
+{
+    cout &lt;&lt; "Cleaning up " &lt;&lt; getName() &lt;&lt; endl;
+}
+</div>                    
+                </ol>
+-->                
+
+                <li>The provided code supplies you with a main function. It takes care of prompting the user for the correct values, and looping through. You need to add the following to main (at the places indicated in the comments):</li>
+                
+                <ol>
+                    <li>Declare a new array.</li>
+                    <li>Declare a new <code>Circle</code>, set the radius, and add it to the array.</li>
+                    <li>Declare a new <code>Rectangle</code>, set the radius, and add it to the array.</li>
+                    <li>Add to the loop a <code>cout</code> statement to display each shape in the array along with its area, in the format "Circle - 10.32"</li>
+                    <li>Delete each object that was dynamically allocated.</li>
+                </ol>
+
+            </ol>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Please enter 'c' for circle, 'r' for rectangle or 'q' to quit: <span class="user-input">c</span>
+Enter the radius: <span class="user-input">3</span>
+Please enter 'c' for circle, 'r' for rectangle or 'q' to quit: <span class="user-input">r</span>
+Enter the length: <span class="user-input">2</span>
+Enter the width: <span class="user-input">4</span>
+Please enter 'c' for circle, 'r' for rectangle or 'q' to quit: <span class="user-input">r</span>
+Enter the length: <span class="user-input">4</span> 
+Enter the width: <span class="user-input">10</span>
+Please enter 'c' for circle, 'r' for rectangle or 'q' to quit: <span class="user-input">q</span>
+Circle - 28.26
+Rectangle - 8.00
+Rectangle - 40.00
+Cleaning up Circle
+Cleaning up Rectangle
+Cleaning up Rectangle
+</div>
+
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using pure virtual functions, but this will not help you understand the concept, and you will not receive credit if you do not follow the instructions.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+testBed cs241/check09b check09b.cpp
+submit check09b.cpp
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

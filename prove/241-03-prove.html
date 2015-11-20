@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>03 Prove : Assignment - Digital Forensics with Corrupt Files</h1>
+
+
+        <h2>Overview</h2>
+        <p>ACME Widget Corporation had another break in. They loved the work you did last time, so they've come to you again. Unfortunately, this time, their log file was corrupted, so your program from before crashes when run on the log.</p>
+        <p>They recognize that the results of your program won't be perfect, because the file they gave you has issues, but they hope that you'll be able to give them as much help as possible. In particular, they want your program to ignore any records that are corrupt, but report on all the good lines in the file.
+        </p>
+
+        <p>Write a program to scan through a log to identify users who accessed files in a particular window of time. When a line with bad data is encountered, display a message noting the bad line, but then skip it and move on.</p>
+
+
+        <h2>Instructions</h2>
+            <p>
+                Write a C++ program according to the following:
+
+                <ol>
+                    <li>Build on your program from last week.
+                        <ul>
+                            <li>Use a struct (e.g., AccessRecord) that contains a username, filename, and a timestamp.</li>
+                            <li>Prompt the user for the name of a file.</li>
+                            <li>Read in a list of Access Records from the file and store it in an array of structs.</li>
+                            <li>Prompt the user for a start time and an end time for consideration.</li>
+                            <li>Display a list of all files that were accessed during that period along with the users that accessed them.</li>
+                        </ul>
+                    </li>
+                    <li>When parsing the file, look for the following kinds of problems:
+                        <ul>
+                            <li>Timestamps that begin with characters.</li>
+                            <li>Timestamps that are less than 1,000,000,000.</li>
+                            <li>Timestamps that are greater than 10,000,000,000.</li>
+                            <li>Lines that are missing filenames, usernames, or timestamps (i.e., only have 2 items instead of 3).</li>
+                        </ul>
+
+                    </li>
+                    <li>Make sure to use a Vector rather than an array to hold your list of records.
+                    </li>
+                    <li>Create a function, <code>parseLine</code> that accepts a line (a string) and populates a struct for the AccessRecord.</li>
+                    <li>Create a function, <code>parseFile</code>, that parses the file one line at a time and passes that line to your <code>parseLine</code> function.</li>
+                    <li>If an error occurs, in the <code>parseLine</code> function, throw an exception that is a string with the text: "<code>Error parsing line: xxxx xxxx xxxx</code>" (where <code>xxxx xxxx xxxx</code> is replaced by the actual text of the line that had the error).
+                    </li>
+                    <li>In the <code>parseFile</code> function, catch any errors, display the message, and move on to the next line.
+                    </li>
+                </ol>
+            </p>
+
+            <p>A few hints</p>
+            <ul>
+                <li>Don't forget to change your assignment number in your file header to 03.</li>
+                <li>A complete line can be read into a string via: <code>getline(fin, myStr);</code></li>
+                <li>If you include the string stream library "sstream", you can take a string, and treat it like a stream (think "cin" or "fin"). For example: </li>
+
+<div class="code">
+string line;
+getline(fin, line);
+
+// The current line is now stored in the variable "line"
+
+stringstream ss;
+ss.str(line); // load the line into "ss"
+
+// We can now use "ss" just like cin, and fin
+
+// For example, we can read variables from it:
+long timeStamp;
+ss >> timeStamp;
+
+// We can also check for failures:
+if (ss.fail())
+{
+    ...
+}
+</div>
+
+                <li>Get started early, there are a few tricky aspects to this assignment.</li>
+            </ul>
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+
+<div class="code">
+Enter the access record file: /home/cs241/assign03a.txt
+Error parsing line: students.txt pricem 10
+Error parsing line: users.txt kevin_tomlinson 1442001032999
+
+Enter the start time: 1442000000
+Enter the end time: 1442332025
+
+The following records match your criteria:
+
+      Timestamp                File                User
+--------------- ------------------- -------------------
+     1442000124           house.pdf             jatkins
+     1442210121        accounts.mdb     kevin_tomlinson
+     1442300125        vacation.jpg            smitty83
+End of records
+</div>
+
+        <p>Here is another example:</p>
+        <div class="code">
+Enter the access record file: /home/cs241/assign03c.txt
+Error parsing line: house.pdf jatkins
+Error parsing line: users.txt 1442001032
+Error parsing line: burtons 1442588012
+
+Enter the start time: 1442000000
+Enter the end time: 1442332025
+
+The following records match your criteria:
+
+      Timestamp                File                User
+--------------- ------------------- -------------------
+     1442210121        accounts.mdb     kevin_tomlinson
+     1442300125        vacation.jpg            smitty83
+End of records
+</div>
+
+        <h2>Helpful Commands</h2>
+
+<div class="code">
+cp /home/cs241/template.cpp myAssign03.cpp
+
+testBed cs241/assign03 myAssign03.cpp
+styleChecker myAssign03.cpp
+
+submit myAssign03.cpp
+</div>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

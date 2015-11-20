@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>08 Prepare : Checkpoint B - More Inheritance</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-08-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of inheritance, specifically, the syntax of calling methods from a base class.
+        </p>
+
+
+        <p>You are to write a program to track cell phones. You determine that there are two types of cell phones, traditional phones that have a phone number, and smart phones, that have a phone number, but also contain an email address.</p>
+
+        <h2>Instructions</h2>
+        <p>Write a class <code>Phone</code> contains a phone number, and then a class <code>SmartPhone</code> that extends the Phone class to add an email address, according to the following:</p>
+
+        <ol>
+            <li>The <code>Phone</code> class should contain three integers for the different parts of a phone number. Here is its class diagram:</li>
+
+                <div class="class-diagrams">
+                    <table class="table-class-diagram">
+                        <tr><th>Phone</th></tr>
+                        <tr><td>-areaCode : int</td></tr>
+                        <tr><td>-prefix : int</td>
+                        <tr><td>-suffix : int</td>
+                        </tr>
+                        <tr class='class-diagram-spacer'><td></td></tr>
+                        <tr><td>+promptNumber() : void</td></tr>
+                        <tr><td>+display() : void</td></tr>
+                    </table>
+                </div>
+
+            
+            <li>The <code>promptNumber</code> method of the <code>Phone</code> class should ask the user to enter each element of a phone number.</li>
+            <li>The <code>display</code> method of the <code>Phone</code> class should display the number in the format "(areaCode)prefix-suffix".</li>
+
+            <li>The <code>SmartPhone</code> class should extend the <code>Phone</code> class and add the following:</li>
+
+                <div class="class-diagrams">
+                    <table class="table-class-diagram">
+                        <tr><th>SmartPhone</th></tr>
+                        <tr><td>-email : string</td></tr>
+                        </tr>
+                        <tr class='class-diagram-spacer'><td></td></tr>
+                        <tr><td>+prompt() : void</td></tr>
+                        <tr><td>+display() : void</td></tr>
+                    </table>
+                </div>
+
+            <li>The <code>prompt</code> method of the <code>SmartPhone</code> class should call the <code>promptNumber</code> method defined in the base class and then additionally prompt for an email address.</li>
+            <li>The <code>display</code> method of the <code>SmartPhone</code> class should call the <code>display</code> method defined in the base class and then display the email address. (Yes, it must call it, and yes they must both be named display.)</li>
+            <li>In <code>main</code> function, create a <code>Phone</code> object, call its <code>promptNumber</code> method and then its <code>display</code> method.</li>
+            <li>After that, also in <code>main</code>, create a <code>SmartPhone</code> object, call its <code>prompt</code> method and then its <code>display</code> method.</li>
+            <li>You should put all of your classes in separate files.</li>
+        </ol>
+
+        <h2>Getting Started</h2>
+        <p>You can copy a skeleton of the files you need, provided at: <code>/home/cs241/check08b/*</code>
+        </p>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Phone:
+Area Code: <span class="user-input">801</span>
+Prefix: <span class="user-input">123</span>
+Suffix: <span class="user-input">4567</span>
+
+Phone info:
+(801)123-4567
+
+Smart phone:
+Area Code: <span class="user-input">208</span>
+Prefix: <span class="user-input">867</span>
+Suffix: <span class="user-input">5309</span>
+Email: <span class="user-input">jenny@test.com</span>
+
+Phone info:
+(208)867-5309
+jenny@test.com
+</div>
+
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using inheritance and without calling the functions in the manner defined, but this will not help you understand the concept, and you will not receive credit if you do not follow the instructions.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+tar -cf check08b.tar makefile *.h *.cpp
+testBed cs241/check08b check08b.tar
+submit check08b.tar
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

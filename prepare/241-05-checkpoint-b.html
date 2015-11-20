@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>05 Prepare : Checkpoint B - Constructors</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-05-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of constructors. It will build upon the class you created in Checkpoint 05a.
+        </p>
+
+        <h2>Instructions</h2>
+            <p>Add a default and a non-default constuctor the Money class from Checkpoint 05a.</p>
+
+                <ol>
+                    <li>While you will use the money class from Checkpoint 05a, you will use a new "main" function. Copy over the file check05b.cpp and a corresponding makefile to start with:
+<div class="code">
+mkdir check05b
+cd check05b
+
+cp /home/cs241/check05b/* .
+</div>
+                    </li>
+                    <li>Now, copy over your money.h and money.cpp files from last time. Assuming you have your code from last time in a directory called "check05a" and that you are now in the "check05b" directory:
+<div class="code">
+cp ../check05a/money.* .
+</div>
+
+                    </li>
+                    <li>Please note that this code does not compile at this point. You need to add code to make it compile.</li>
+                    <li>Add the following constructors:
+                        <ul>
+                            <li>Default - Set the values to 0.</li>
+                            <li>Non-default that accepts 1 integer - Sets the dollar amount to that integer, sets the cents to 0.</li>
+                            <li>Non-default that accepts 2 integers - Sets the dollar amount to the first, and the cents to the second.</li>
+                        </ul>
+                    </li>
+                    <li>Don't forget to use your setters so that you will get any error checking they do for free.</li>
+                    <li>
+                        You should not change anything in main (or your functions from last time). All you need to do is add the contructors.
+                    </li>
+                    <li>Don't forget to add your information to the makefile before tar-ing, and submitting.
+                    </li>
+                </ol>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Dollar amount: <span class="user-input">10</span>
+Cents amount: <span class="user-input">23</span>
+Default constructor: $0.00
+Non-default constructor 1: $10.00
+Non-default constructor 2: $10.23
+</div>
+        <p>Another example is:</p>
+<div class="code">
+Dollar amount: <span class="user-input">3</span>
+Cents amount: <span class="user-input">-2</span>
+Default constructor: $0.00
+Non-default constructor 1: $3.00
+Non-default constructor 2: $3.02
+</div>
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using constructors, but this will not help you understand the concept, and you will not receive credit if you do not use them.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+tar -cf check05b.tar makefile *.h *.cpp
+testBed cs241/check05b check05b.tar
+submit check05b.tar
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

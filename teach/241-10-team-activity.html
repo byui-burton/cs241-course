@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>10 Teach : Team Activity - STL and Iterators</h1>
+
+
+        <p>This activity is designed to be completed during class.
+        </p>
+
+        <h1>Overview</h1>
+        <p>This activity will help you practice the syntax of iterators and the Standard Template Library (STL). In particular, this will help you prepare to handle the collection of bullets in your project.</p>
+
+        <p>Your assignment is to create a vector of integers and use iterators to both display the contents and remove certain items.</p>
+
+        <h1>Instructions</h1>
+        <p>Divide your teams into groups of 2-3. You should all work together on one laptop, then make sure everyone in your team gets a copy of the work that you complete.</p>
+
+        <p>Begin with a blank file (e.g., (<code>ta10.cpp</code>).</p>
+        
+        <h2>Core Requirements</h2>
+        <ol>
+
+            <li><p>Prompt the user for integers, store them in a vector and display them. In particular:</p>
+
+                <ol>
+                    <li>Declare a vector of ints.</li>
+                    <li>Create a function, <code>promptNumbers</code>, and pass your vector to it. (Don't forget to pass it by reference!)</li>
+                    <li>Fill in the body of the <code>promptNumbers</code> function to prompt the user for integers and add them to the vector until the user enters 0.</li>
+                    <li>Create another function <code>displayNumbers</code> and pass your vector to it after calling the promptNumbers function.</li>
+                    <li>Fill in the body of your <code>displayNumbers</code> function to loop through the vector and display each number that the user entered. For this step, use the square bracket operator (<code>[]</code>). Also, don't pass a separate variable to the function for size, but rather, use the vector's size method for your loop.</li>
+                </ol>
+            </li>
+
+            <li>Change the <code>displayNumbers</code> function to use an iterator to go through the items in the list and display them.</li>
+
+            <li><p>Remove the odd numbers from your vector and display it again. In particular:</p>
+                <ol>
+                    <li>Create another function, <code>removeOdds</code>, an pass your vector to it.</li>
+                    <li>In main, after calling your <code>displayNumbers</code> function, add a call to <code>removeOdds</code> and then call <code>displayNumbers</code> again so that you will display the list before and after removing the odd numbers.</li>
+                    <li>Fill in the body of your <code>removeOdds</code> function to use an iterator to go through the list and remove any number that is odd (<em>not</em> numbers at odd indexes, but numbers that are not divisible by 2).</li>
+                    <li>Be careful using the <code>erase</code> method. Notice that it returns an iterator to the next item in the list, so if you try to advance it again (with something like <code>it++</code> you may skip items or go off the end of your list.</li>
+                </ol>
+            </li>
+        </ol>
+
+        <p>Test your code on the following lists:</p>
+        <ol>
+            <li>1,2,3,4,5</li>
+            <li>1,2,3,5,6</li>
+            <li>1,3,5</li>
+            <li>2,4,6</li>            
+            <li>0 (an empty list)</li>
+        </ol>
+
+        <p>When you complete these requirements, show your code to your instructor to "pass it off."</p>
+
+        <h2>Stretch Challenges</h2>
+        <p> After completing the above steps. Make sure that everyone on the entire team is to this point and understands the material. Then, if you have time, move onto the following stretch challenges.</p>
+
+        <ol>
+            <li>Copy your file to a new one (e.g., <code>cp ta10.cpp ta10b.cpp</code>), then change every instance of your vector to use a linked list.</li>
+            <li>Change your <code>displayNumbers</code> function to pass your list as <code>const</code>.</li>
+
+            <li>Change your <code>displayNumbers</code> function to display the list backwards.</li>
+        </ol>
+
+
+        <h1>Submission</h1>
+        <p>You do not need to submit your program (just make sure that everyone has a copy of it for their reference). Instead, answer the accompanying questions in the I-Learn quiz.</p>
+
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

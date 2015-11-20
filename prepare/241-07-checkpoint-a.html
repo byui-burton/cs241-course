@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>07 Prepare : Checkpoint A - Static</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-07-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the static class variables. You will start with a simple class to model the sales of Ice Cream, and then add to it a static member to represent sales tax.
+        </p>
+
+        <h2>Instructions</h2>
+
+            <ol>
+                <li>Begin with a working implementation of an <code>IceCream</code> class. You can copy this code to your directory via the following:</li>
+
+
+<div class="code">
+mkdir check07a
+cd check07a
+
+cp /home/cs241/check07a/* .
+</div>
+
+                <li>This class has the following class diagram:</li>
+                <div class="class-diagrams">
+                    <table class="table-class-diagram">
+                        <tr><th>IceCream</th></tr>
+                        <tr><td>-flavor : string</td></tr>
+                        <tr><td>-price : float</td>
+                        </tr>
+                        <tr class='class-diagram-spacer'><td></td></tr>
+                        <tr><td>+IceCream()</td></tr>
+                        <tr><td>+IceCream(flavor, price)</td></tr>
+                        <tr><td>+getTotalPrice() : float</td></tr>
+                        <tr><td>+prompt() : void</td></tr>
+                        <tr><td>+display() : void</td></tr>
+                    </table>
+                </div>
+
+                <li>Add to this class a public static variable named <code>salesTax</code>.</li>
+                <li>Give this variable a default value of 0.06.</li>
+                <li>Change the getTotalPrice() function to include the tax in the price.</li>
+                <li>A main function is provided for you in <code>check07a.cpp</code>. It declares two IceCream objects, displays them, asks for an alternate sales tax, and displays them again. Currently (because you hadn't written it yet), it does not actually change the sales tax value.</li>
+                <li>Change main, where noted in the comments, to actually set the new sales tax value.</li>
+            </ol>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Flavor: <span class="user-input">Vanilla</span>
+Price: <span class="user-input">3.49</span>
+Flavor: <span class="user-input">Rocky Road</span>
+Price: <span class="user-input">5.49</span>
+
+Menu:
+$3.70 - Vanilla
+$5.82 - Rocky Road
+
+Enter alternate sales tax: <span class="user-input">0.10</span>
+
+Menu:
+$3.84 - Vanilla
+$6.04 - Rocky Road
+</div>
+
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using a static member variable, but this will not help you understand the concept, and you will not receive credit if you do not follow the instructions.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+tar -cf check07a.tar makefile *.h *.cpp
+testBed cs241/check07a check07a.tar
+submit check07a.tar
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

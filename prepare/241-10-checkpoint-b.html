@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>10 Prepare : Checkpoint B - Removing from Vectors</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-10-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of removing from vectors.
+        </p>
+
+        <p>
+            Consider that you are writing a program to track your food storage inventory. Each item in your inventory has a name and an expiration date. At some point, you realize that you have a lot of food that has expired and you want to remove it from your inventory list.
+        </p>
+
+        <p>Please note that this assignment requires a little more problem solving than a typical checkpoint. The purpose of this assignment is to help prepare you to handle bullets in your Skeet project.</p>
+       
+        <h2>Instructions</h2>
+
+        <p>For this assignment, you can do all of your work in a single <code>.cpp</code> file for simplicity. Recognize that much of the code (regarding the the <code>Food</code> class, etc.) has been provided. Your task is to concentrate on adding and removing from a <code>vector</code>.</p>
+
+            <ol>
+                <li>Copy the template file <code>/home/cs241/check10b.cpp</code> to your working directory.</li>
+
+                <li>Notice that a <code>vector</code> of <code>Food*</code> has been created for you.</li>
+
+                <li>First, the provided code calls a function <code>promptInventory</code>. This function will prompt the user for new food items until they enter <code>quit</code>. These values (the name, month, and year) are stored in simple local variables for you to use.</li>
+
+                <li>Fill in the body of the loop in the <code>promptInventory</code> function to create a new <code>Food</code> object, populate it with the correct values, and add it to the <code>vector</code>.</li>
+
+                <li>When the user is done entering food, your program will call the function, <code>displayInventory</code> to display each item. You need to fill in the body of this function to use an <code>iterator</code> to go through each item in the vector and display it.</li>
+                
+                <li>After displaying the list, the provided code will prompt the user for a current month and year.</li>
+
+                <li>It then calls the function <code>removeExpiredItems</code> to remove the food from the list that has expired. You need to fill in the body of this function.</li>
+
+                <li>Implement the <code>removeExpiredItems</code> function to use an <code>iterator</code> to go through the <code>vector</code> and remove each <code>Food</code> object that has expired.</li>
+
+                <ul>
+                    <li>This task is the real trick of this assignment.</li>
+                    <li>An item has expired if its year is less than the current year (5/2014 has expired on 1/2015) OR if its year is the same as the current year and its month is less than the current month (8/2015 has expired on 10/2015)</li>
+                    <li>Be careful about advancing your iterator. Remember that when you call the <code>erase</code> function it will return an iterator that points to the next item in the list. If you were to do another <code>++</code> operation after this, you would skip one and/or go off the end of your vector.</li>
+                    <li>Don't forget to delete the dynamically allocated objects in addition to removing them from the vector.</li>
+                    <li>Note that a destructor has been included on the <code>Food</code> class to output a message when it is being deleted. This is done so that the testBed can see that you have deleted it at the correct time. (Normally, destructors would not output anything to the screen, and one would not be necessary for the <code>Food</code> class anyway...We will talk more about destructors in a few weeks.)</li>
+                </ul>
+
+                <li>After removing the expired items from your <code>vector</code>, the provided code will call your <code>displayInventory</code> function again to display the remaining items.</li>
+
+                <li>Finally, the provided code will call a function <code>deleteRemainingItems</code> to delete the last of the items. This function is provided for you (you don't have to fill it in). It may be helpful to look at this function for reference.</li>
+
+            </ol>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Enter item name: <span class="user-input">Green Beans</span>
+Enter expiration month: <span class="user-input">9</span>
+Enter expiration year: <span class="user-input">2015</span>
+
+Enter item name: <span class="user-input">Pasta</span>
+Enter expiration month: <span class="user-input">7</span>
+Enter expiration year: <span class="user-input">2016</span>
+
+Enter item name: <span class="user-input">Sugar</span>
+Enter expiration month: <span class="user-input">11</span>
+Enter expiration year: <span class="user-input">2015</span>
+
+Enter item name: <span class="user-input">Condensed Milk</span>
+Enter expiration month: <span class="user-input">8</span>
+Enter expiration year: <span class="user-input">2006</span>
+
+Enter item name: <span class="user-input">quit</span>
+
+Your current inventory:
+Green Beans - 9/2015
+Pasta - 7/2016
+Sugar - 11/2015
+Condensed Milk - 8/2006
+
+Enter current month: <span class="user-input">11</span>
+Enter current year: <span class="user-input">2015</span>
+
+Checking for expired items...
+Deleting Green Beans
+Deleting Condensed Milk
+
+Your current inventory:
+Pasta - 7/2016
+Sugar - 11/2015
+
+Cleaning up remaining items...
+Deleting Pasta
+Deleting Sugar
+
+Goodbye
+</div>
+
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using vectors/iterators, but this will not help you understand the concept, and you will not receive credit if you do not follow the instructions.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+testBed cs241/check10b check10b.cpp
+submit check10b.cpp
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

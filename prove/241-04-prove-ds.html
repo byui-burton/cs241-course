@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Data Structures Homework</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>04 Prove : Data Structures Homework - Iterators</h1>
+
+        <h2>Overview</h2>
+
+        <p>This assignment will help you practice the basics of using Iterators in C++. It will walk you through a series of steps and then turn you to a quiz in I-Learn to report on your progress.</p>
+
+        <h2>Instructions</h2>
+
+        <h3>Part I - In Class</h3>
+        <ol>
+            <li>Create a vector to hold integers.</li>
+            <li>Prompt the user for how many numbers they would like to enter.</li>
+            <li>Using a for loop and push_back() prompt the user for that number of integers and add them to the vector.</li>
+            <li>Using an iterator (not just the [] notation), loop through and display each number in the vector.</li>
+            <li>Using an iterator (not just the [] notation), loop through the vector BACKWARDS and display each number in the vector.</li>
+        </ol>
+
+        <h3>Part II - Individual Work</h3>
+        <ol>
+            <li>Repeat Part I but instead of having a vector of integers, create a vector of strings.</li>
+            <li>Prompt for the number of strings.</li>
+            <li>Loop, prompt, push_back to put that many strings in the vector.</li>
+            <li>Use iterators to display each string in the vector.</li>            
+            <li>Use iterators to display each string in the vector, in reverse order.</li>
+        </ol>
+
+        <h3>Part III - A few more tricks... (work together on this if you can!)</h3>
+        <ol>
+            <li>Start with your code from either Part I or Part II.</li>
+            <li>Instead of using push_back() to insert your items at the end of the vector, use insert() to put each one at the front (i.e., top, start) of the vector.</li>
+            <li>Leave your code in to loop through and print them out, and observe the changes in the ordering.</li>
+            <li>Remove the first half of the items in the vector.</li>
+            <li>Let your code loop through and print them out.</li>
+        </ol>
+
+<!--
+        <h3>Part III - Insert and Remove operations</h3>
+        <ol>
+            <li>include the "ctime" library. This will let us output time(0), or the number of seconds since the last "epoch".
+            <li>Create a vector to hold integers, with an initial capacity of 500,000,000 (i.e. Vector&lt;int&gt; v(500000000);).</li>
+            <li>Output "Started" and the value in <code>time(0)</code>.
+            <li>Add 500,000,000 numbers to it, using <code>push_back()</code>.</li>
+            <li>Output "Initial list created" and the value in <code>time(0)</code>.</li>
+            <li>Add 1 number to the back (using <code>push_back()</code>), and output "Added to back" and the value in <code>time(0)</code>, notice the time taken.</li>
+            <li>Add 1 number to the front (using <code>v.insert(v.begin(), num)</code>), and output "Added to front" and the value in <code>time(0)</code>, notice the time taken.</li>
+            <li></li>
+        </ol>
+-->
+
+        <p>After completing these instructions and the preparation reading, take the I-Learn quiz. You are encouraged to work with others on the programming and the quiz.</p>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

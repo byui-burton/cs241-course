@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+            <h1>08 Prove : Milestone - Skeet</h1>
+
+
+            <h2>Overview</h2>
+            <p>To help you stay on track to finishing the Skeet project, you are required to meet certain milestone deliverables. You are encouraged to get further on the project, but this submission is a minimum standard to make sure you are on track.</p>
+
+            <p>Refer to the <a href="241-project-skeet.html">Skeet project description</a> for the details of this project.</p>
+
+            <h2>Requirements</h2>
+            <p>For this milestone, you need to have the Rifle working correctly and the ability to fire a Bullet in the correct direction.</p>
+
+            <p>Thus, at a minimum, you should have the following:</p>
+
+            <ol>
+                <li>A class for a Rifle</li>
+                <li>A class for a Bullet</li>
+                <li>Have separate files for the above mentioned classes, and a makefile that correctly builds everything in the Linux Lab environment.</li>
+                <li>Demonstrate the Rifle taking aim and firing a bullet.</li>
+                <li>Demonstrate the Rifle being limited to the correct range.</li>
+                <li>Demonstrate a Bullet moving across the screen at the correct angle.</li>
+            </ol>
+
+            <p>Helpful Hints:</p>
+            <ul>
+                <li>Don't forget to make use of the Point and Velocity classes from the Moon Lander project.</li>
+                <li>Recognize that you can have things drawn off the edge of the screen. For example, it may be easier to draw the rectangle for the rifle twice as long as you need it, so the "hinge point" can be the center of the rectangle.</li>
+                <li>It is much easier to start bullets at the corner of the screen (inside the rifle) than at the tip of the barrel, and this will be sufficient as long as the angle is correct.</li>
+            </ul>
+
+            <p>The following are not specifically required at this point (although having them done already would be a great thing!):</p>
+
+                <ol>
+                    <li>Bird classes</li>
+                    <li>Bullets hitting birds / collision detection</li>
+                    <li>Scoring</li>
+                    <li>Multiple bullets</li>
+                </ol>
+
+            <h2>Submission</h2>
+            <p>Regardless of the approach you take for your personal development, your program must be able to run in the Linux Lab environment.</p>
+            <ol>
+                <li>When complete, if necessary, copy your code to the Linux Lab and ensure that it compiles.</li>
+                <li>Open the makefile and ensure that it has the proper information in the header (i.e., your name, class, instructor).</li>
+                <li>Make sure the name of the assignment is "Milestone 08, Skeet" (not Assignment 08, or Project 08).</li>
+                <li>Create a tar file with all of your files and submit it. For example:</li>
+<div class="code">
+tar -cf skeet.tar makefile *.cpp *.h
+submit skeet.tar
+</div>
+                <li>There is no testBed script for this assignment.</li>
+            </ol>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

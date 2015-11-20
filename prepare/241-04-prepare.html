@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Preparation Material</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+
+
+        <h1>04 Prepare : Reading</h1>
+
+
+        <p>Please read the following sections from your textbook:
+        </p>
+
+            <ul>
+                <li>2.0 Encapsulation Design</li>
+                <li>2.2 Class Syntax</li>
+            </ul>
+
+            <p>Please note that the textbook mentions putting your classes in separate files and using "makefiles" to compile them all together. We will put our classes in separate files as described in the textbook, however we will not learn the ins and outs of makefiles until a little later on. Instead, we will compile the separate files together by putting all the .cpp files (not the .h files) on the commandline.</p>
+
+            <p>As an example, consider that you had a shape class, defined in <code>shape.cpp</code> and <code>shape.h</code> and then had a main function that used it defined in <code>driver.cpp</code>. You would then have these files:</p>
+<div class="code">
+shape.h
+shape.cpp
+driver.cpp
+</div>
+
+            <p>You would compile and run your program with the lines:</p>
+<div class="code">
+g++ shape.cpp driver.cpp
+a.out
+</div>
+
+            <p>Note that we did NOT include <code>shape.h</code> when compiling, but that we did include all of the .cpp files.</p>
+
+        <h2>TAR files, TestBed, and Submitting</h2>
+
+        <p>The testBed and submit commands only work with a single file. Therefore, we need to "tar up" our files into a single .tar file (very similar to zipping them to create a zip file). To create a new tar file named check04b.tar with all of the files for this assignment, go to your directory and run the following command:</p>
+
+<div class="code">
+tar -cf check04b.tar makefile *.h *.cpp
+</div>
+
+        <p>This "creates a file" (hence, cf) with the name of whatever comes after it. Then comes a list of all the files to include. The line above includes a file called, "makefile" and then all the .h and .cpp files in the current directory.</p>
+
+        <p>Please note that you MUST include the name of a tar file, if you forget and write something like this:</p>
+
+<div class="code">
+THIS IS BAD: tar -cf *.cpp *.h
+</div>
+
+        <p>It will assume that one of your .cpp files is the name that you want to use for your tar file, and overwrite it. Yikes!</p>
+
+        <p>Once you have a tar file, you can use it with testBed or submit, just like before:</p>
+
+<div class="code">
+testBed cs241/check04b check04b.tar
+submit check04b.tar
+</div>
+
+        <p>These tools will use a makefile to tell them how to compile your program. At this point, we will provide one for you to start with. The makefile also it include your name, assignment number, etc. so be sure to fill that in.</p>
+        
+        </article>
+    </div>
+
+
+</body>
+
+</html>

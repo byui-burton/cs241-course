@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - OpenGL with Visual Studio</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>Visual Studio Community Edition</h1>
+
+        <p>Visual Studio is an integrated development enviroment (IDE), which allows you to write, test, and debug your code. <a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio Community Edition</a> is available for free for Windows.</p>
+
+        <h2>Configuring Visual Studio for OpenGL Development</h2>
+
+        <p>First, make sure have <a href="https://www.visualstudio.com/en-us/products/visual-studio-community-vs.aspx">Visual Studio</a> downloaded and installed on your computer.</p>
+
+        <p>When you run the Visual Studio installer, make sure you add support for the C++ language by selecting a Custom installation, then expand the triangle next to the Programming Languages, and check the box next to "Visual C++".</p>
+
+        <p>If you have already installed Visual Studio and didn't add support for this, just rerun the installer, click "Modify" and follow the above steps to add support for Visual C++.</p>
+
+        <h2>Create an Empty C++ Project</h2>
+
+        <p>Visual Studio has a lot of options and project types. Follow these steps to create an empty C++ project:</p>
+
+        <ol>
+           <li><p>From the File menu, hover over New, then select Project.</p></li>
+
+           <li><p>In the New Project window, navigate to the C++ section. In the center of the window, select the Empty Project template.</p></li>
+
+           <li><p>At the bottom of the window, type the name of the project. If you wish to save the project in a different location, you may also change that here.</p>
+                <img class="screenshot" src="./img/empty.png"/></li>
+
+           <li><p>When you are finsihed, press OK</p></li>
+
+        </ol>
+
+        <h2>Configure Visual Studio for OpenGL</h2>
+
+        <p>Once you are able to create a basic C++ project in Visual Studio, you'll want to configure it for OpenGL.</p>
+
+        <p>With your project open in Visual Studio, go to the Tools menu, hover over NuGet Package Manager, and select Package Manager Console.</p>
+
+        <img class="screenshot" src="./img/vsnuget.png"/>
+
+        <p>At the bottom of the window, the NuGet Package Manager Console will appear. Click on the prompt (where it says <code>PM&gt;</code>), and type: <code>Install-Package nupengl.core</code> Then press enter.</p>
+
+        <img class="screenshot" src="./img/nugetconsole.png"/>
+
+        <p>After a few minutes, if it says <code>Successfully installed 'nupengl.core...</code>, you should be ready to go.</p>
+
+        <p>Keep in mind, that you will need to repeat this step any time you create a new OpenGL project in Visual Studio.</p>
+        
+        <h2>Testing Your OpenGL Setup</h2>
+
+        <ol>
+            <li><p>Create a temporary folder on your desktop, or some other easy-to-find location.</p></li>
+
+            <li><p>Using MobaXTerm or Filezilla, connect to the Linux Lab, and go to this directory: <code>/home/cs241/uiTest</code>.</li>
+
+            <li><p>Copy all of the files from that directory into the folder you created.</p></li>
+
+            <li><p>In Visual Studio, right-click on your project, and select "Open Folder in File Explorer...".</p>
+                <img class="screenshot" src="./img/openfolder.png"/></li>
+
+            <li><p>A folder will appear that contains the files for your project. Drag the openGL files from the folder you created in step 1, into this folder.</p></li>
+
+            <li><p>In Visual Studio, right-click on your project, hover over "Add", and select "Existing Item..."</p>
+                <img class="screenshot" src="./img/vs_add.png"/></li>
+
+            <li><p>If necessary, navigate to your project folder. By default, this will be in your Documents folder. Select all of the .h and .cpp files, and click Add.</p>
+                <img class="screenshot" src="./img/vs_files.png"/></li>
+
+            <li><p>Press F5 to build and start the project.</p></li> 
+        </ol>
+
+        <p>If everything went well, you should see a window appear containing a spinning shape, which you can control with the arrow keys.</p>
+
+        <img class="screenshot" src="./img/success.png"/>
+
+
+        <p>If you see the shape rotating incredibly quickly, you may need to increase the delay between frames. This can be done in the uiInteract.cpp file. Find the lines:</p>
+
+<div class="code">
+#ifdef _WIN32
+   ::Sleep(msSleep);
+</div>
+        <p>and add an additional amount, such as the following:</p>
+        
+<div class="code">
+#ifdef _WIN32
+   ::Sleep(msSleep + 35);
+</div>
+        </article>
+    </div>
+
+
+</body>
+
+</html>

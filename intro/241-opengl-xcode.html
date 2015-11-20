@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - OpenGL with Xcode</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>Xcode</h1>
+
+        <p>Xcode is an integrated development enviroment (IDE), which allows you to write, test, and debug your code. <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> is available for free for computers running Mac OS X.</p>
+
+        <h2>Configuring Xcode for OpenGL Development</h2>
+
+        <p>First, make sure have <a href="https://itunes.apple.com/us/app/xcode/id497799835?mt=12">Xcode</a> installed on your computer.</p>
+
+        <h2>Create an Empty C++ Project</h2>
+
+        <p>Xcode has a lot of options and project types. Follow these steps to create an empty C++ project:</p>
+
+        <ol>
+           <li><p>From the File menu, hover over New, then select Project.</p></li>
+
+           <li><p>In the New Project window, navigate to the Mac OS X / Application section. Select the Command Line Tool project type and click Next.</p>
+               <img class="screenshot" src="./img/xcode_empty.png"/></li>
+
+           <li><p>In the Project Options window, enter the name of the project, and make sure the C++ language is selected. Then click Next. You'll then be asked to choose a location to store your project files.</p>
+                <img class="screenshot" src="./img/xcode_options.png"/></li>
+        </ol>
+
+        <h2>Configure Xcode for OpenGL</h2>
+
+        <p>Once you are able to create a basic C++ project in Xcode, you'll want to configure it for OpenGL.</p>
+
+        <ol>
+            <li><p>Click on the blue project icon on the left side of the window.</p></li>
+            <li><p>Then select the Build Phases section.</p></li>
+            <li><p>Click the triangle next to "Link Binary with Libraries".</p>
+             <img class="screenshot" src="./img/xcode_project.png"/></li>
+             <li><p>Click the plus button, a list of libraries will appear. Scroll down to the OpenGL library, or type "opengl" into the search box. Select the OpenGL Framework and click Add.</p>
+             <img class="screenshot" src="./img/xcode_gllib.png"/></li>
+             <li><p>Click the plus button again. This time, select the GLUT framework, and click Add.</p></li>
+        </ol>
+
+        <p>Keep in mind, that you will need to repeat this step any time you create a new OpenGL project in Xcode.</p>
+        
+        <h2>Testing Your OpenGL Setup</h2>
+
+        <ol>
+             <li><p>Open your Terminal app.</p></li>
+
+             <li><p>In the terminal window, create a new directory, then navigate to it.</p>
+
+<pre><code>mkdir gltest
+cd gltest</code></pre></li>
+            
+            <li><p>Use the <code>scp</code> command to connect to the Linux Lab, and copy all of the files from: <code>/home/cs241/uiTest</code> into the directory you created. (Replace "lfalin" with your Linux Lab username.</p>
+
+<pre><code>scp -P 215 -r lfalin@157.201.194.201:/home/cs241/uiTest/* .</code></pre></li>
+
+            <li><p>In Xcode, right click the folder containing main.cpp and select "Add Files..."<br/> Navigate to the folder you created in step 1, and select all of the .h and .cpp files, then click Add.</p>
+                <img class="screenshot" src="./img/xcode_files.png"/></li>
+
+            <li><p>Since our OpenGL test files already contain a <code>main</code> function, we need to delete the one that Xcode added. To do so, right click main.cpp, select Delete, then click Move to Trash.</p></li> 
+
+            <li><p>To build and run the project, press Command-R, or click the Play button in the toolbar.</p></li>
+        </ol>
+
+        <p>If everything went well, you should see a window appear containing a spinning shape, which you can control with the arrow keys.</p>
+
+        <img class="screenshot" src="./img/success.png"/>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

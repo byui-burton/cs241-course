@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>04 Prepare : Checkpoint B - More Classes</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-04-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of creating your own class. For this checkpoint, you need to put all of your code in separate files. Then you will need to "tar them up" into a single .tar file and submit it.
+        </p>
+
+        <h2>Instructions</h2>
+            <p>Write a C++ program that has a class for a date, that holds a month, day, and year, and can display it in American format (mm/dd/yyyy), European format (dd/mm/yyyy), and the ISO 8601 standard format (yyyy-mm-dd).
+
+                <ol>
+                    <li>Create a class called "Date" with the following private data members:
+                        <ul>
+                            <li>month</li>
+                            <li>day</li>
+                            <li>year</li>
+                        </ul>
+                    </li>
+                    <li>Create the following public methods (functions):
+                        <ul>
+                            <li><code>set</code> - Accepts a month, day, and year, and sets the member variables.</li>
+                            <li><code>displayAmerican</code> - Displays the date in the format: mm/dd/yyyy .</li>
+                            <li><code>displayEuropean</code> - Displays the date in the format: dd/mm/yyyy .</li>
+                            <li><code>displayISO</code> - Displays the date in the format: yyyy-mm-dd .</li>
+                        </ul>
+                    </li>
+                    <li>You will have the following files:
+                        <ul>
+                            <li><code>date.h</code> - Used for the declaration of your <code>Date</code> class.</li>
+                            <li><code>date.cpp</code> - Used for the method bodies</li>
+                            <li><code>check04b.cpp</code> - Contains the <code>main</code> function.</li>
+                            <li><code>makefile</code> - This will be used by the autograding system to process your files. Make sure to update it with your name and teacher, etc.</li>
+                        </ul>
+                    </li>
+
+                    <li>Have <code>main</code>:</li>
+                    <ol>
+                        <li>Prompt the user for a month, day, and year.</li>
+                        <li>Create a <code>Date</code> object.</li>
+                        <li>Call the <code>set</code> method on your object, passing in the month, day, and year.</li>
+                        <li>Call the <code>displayAmerican</code>, <code>displayEuropean</code>, and <code>displayISO</code> methods on your object.</li>
+                    </ol>
+                    <li>You need not worry about formatting single digit months or days to have two digits, or anything of that nature.</li>
+                </ol>
+            </p>     
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Month: <span class="user-input">10</span>
+Day: <span class="user-input">13</span>
+Year: <span class="user-input">2007</span>
+
+10/13/2007
+13/10/2007
+2007-10-13
+</div>
+        <h2>Getting Started</h2>
+        <p>A skeleton of each of the required files is provided for you. To use copy these files to your directory, use the following commands:</p>
+<div class="code">
+mkdir check04b
+cd check04b
+
+cp /home/cs241/check04b/* .
+</div>
+        <h2>Creating a TAR file for testbed and submit</h2>
+        <p>The testBed and submit commands only work with a single file. Therefore, we need to "tar up" our files into a single .tar file (very similar to zipping them to create a zip file). To create a new tar file named check04b.tar with all of the files for this assignment, go to your directory and run the following command:</p>
+<div class="code">
+tar -cf check04b.tar makefile *.h *.cpp
+</div>
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+        <p>Please note that it is possible to do this assignment without using classes or separate files, but this will not help you understand the concepts, and you will not receive credit if you do not use use them.
+        </p>
+
+        <p>For example:</p>
+        <div class="code">testBed cs241/check04b check04b.tar</div>
+
+        <h2>Submission</h2>
+        <p>
+            Because your assignment is in multiple files, you need to include your header information (i.e., your name, class, instructor's name, in the makefile). Then, tar up your files, and submit the tar file:
+
+        </p>
+
+        <div class="code">submit check04b.tar</div>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>

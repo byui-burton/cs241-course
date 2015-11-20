@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>03 Teach : Team Activity - Parsing Streams</h1>
+
+
+        <p>This activity is designed to be completed during class.
+        </p>
+
+        <h1>Overview</h1>
+        <p>As a team, write a program that reads a list of scriptures from a file and displays them. Use the stringstream library to process and handle lines that have multiple verses ("Moroni 10:3-5" in addition to simply "Moroni 10:4").
+        </p>
+
+        <h1>Instructions</h1>
+        <p>Divide your teams into groups of 2-3. You should all work together on one laptop, then make sure everyone in your team gets a copy of the work that you complete.</p>
+        
+        <h3>Core Requirements</h3>
+        <ol>
+            <li>Begin with the file: <code>/home/cs241/ta03.cpp</code> that has code similar to what you wrote last week.</li>
+            <ul>
+                <li>It has a <code>Scripture</code> struct with a book, chapter, and verse.</li>
+                <li>It also has <code>display</code> function.</li>
+            </ul>
+            <li>Prompt the user for the name of a file.</li>
+            <li>Open the file, check for failures, and close it.</li>
+            <li>Read the file <strong>one line at a time</strong>, and <strong>store each line in a string</strong>.</li>
+            <li>At first, assume that each scripture only has one verse associated with it.</li>
+            <ul>
+                <li>Use a stringstream to parse the line into a book, chapter, verse. Store it in a <code>Scripture</code> struct, and pass that struct to the <code>display</code> function.</li>
+                <li>Run your program on the file: <code>/home/cs241/ta03a.txt</code></li>
+                <li>The file format is: "<code>Alma 1 2</code>" for "Alma 1:2".</li>
+            </ul>
+            <li>Now, modify your program so that it can handle scriptures with a verse range (i.e., a start verse and an end verse).</li>
+            <ul>
+                <li>Modify the struct to include an end verse.</li>
+                <li>Modify the display function to display the end verse.</li>
+                <li>Change your code that parses the line, to read in an end verse.</li>
+                <li>Run your program on the file: <code>/home/cs241/ta03b.txt</code></li>
+                <li>The file format is: "<code>Alma 1 2 3</code>" for "Alma 1:2-3".</li>
+            </ul>
+            <li>Finally, modify your program so that it can handle scriptures with a single verse OR a verse range.</li>
+            <ul>
+                <li>Change your code that parses the line, to try to read in an end verse, detect if it failed, and if so, set the end verse to be 0.</li>
+                <li>Change your display to work accordingly.</li>
+                <li>Run your program on the file: <code>/home/cs241/ta03c.txt</code></li>
+            </ul>
+
+            <li>Show your code to your instructor to "pass it off."</li>
+        </ol>
+
+        <h3>Stretch Challenges</h3>
+        <p> After completing the above steps. Make sure that everyone on the entire team is to this point and understands the material. Then, if you have time, move onto the following stretch challenges.</p>
+
+        <ol>
+            <!--
+            <li>Change your code so that it reads in all the scriptures first, stores them in an array, then passes them to another function to display them (as opposed to just displaying as each line is read).</li>
+            <li>
+                Change your code to handle <code>/home/cs241/ta03c.txt</code> which has the data formatted as: "Alma 31:5" instead of "Alma 31 5".
+            </li>
+            <li>Change your code to handle <code>/home/cs241/ta03c.txt</code> which has text right after the starting verse. You should detect this text (rather than a number), and ignore it, thus, "1 Nephi 2 17 And my father dwelt in a tent." should simply be read as "1 Nephi 2:17".
+            </li>
+        -->
+            <li>
+                Change your code so that in addition to the above conditions, it can also handle the case of no verses at all (e.g., "Alma 31").
+                <ul>
+                <li>Run your program on the file: <code>/home/cs241/ta03d.txt</code>.</li>
+                <li>The file format is: "<code>Alma 1</code>" for "Alma 1".</li>
+                </ul>
+
+            </li>
+            <li>
+                Change your code to detect verse ranges that are not correct, such as "20-15" and handle them appropriately.
+                <ul>
+                <li>Run your program on the file: <code>/home/cs241/ta03e.txt</code>.</li>
+                <li>The file format is: "<code>Alma 1 3 2</code>" for "Alma 1:2-3".</li>
+                </ul>
+            </li>            
+            <li>
+                Change your code to handle book names that begin with a number and have a space in the book name (e.g., "1 Nephi").
+                <ul>
+                <li>Run your program on the file: <code>/home/cs241/ta03f.txt</code>.</li>
+                <li>The file format is: "<code>1 Nephi 2 3 4</code>" for "1 Nephi 2:3-4".</li>
+                </ul>
+
+            </li>
+        </ol>
+
+<p>Here are example formats of each file, along with what should be displayed</p>
+
+<!--
+<table cellpadding="10">
+    <tr>
+        <th>File</th>
+        <th>Format</th>
+        <th>Display</th>
+    </tr>
+    <tr>
+        <td>ta03a.txt</td>
+        <td>Alma 1 1</td>
+        <td>Alma 1:1</td>
+    </tr>
+    <tr>
+        <td>ta03b.txt</td>
+        <td>Alma 1 1 3</td>
+        <td>Alma 1:1-3</td>
+    </tr>
+    <tr>
+        <td>ta03c.txt</td>
+        <td>Alma 1 1<br />
+            Alma 1 1 3</td>
+        <td>Alma 1:1<br />
+            Alma 1:1-3</td>
+    </tr>
+    <tr>
+        <td>ta03d.txt</td>
+        <td>Alma 1</td>
+        <td>Alma 1</td>
+    </tr>
+    <tr>
+        <td>ta03e.txt</td>
+        <td>Alma 1 7 2</td>
+        <td>Alma 1:2-7</td>
+    </tr>
+    <tr>
+        <td>ta03f.txt</td>
+        <td>1 Nephi 2 3</td>
+        <td>1 Nephi 2:3</td>
+    </tr>
+</table>
+-->
+
+        <h1>Completion</h1>
+        <p>By following the steps above, you should complete and report on the following:</p>
+
+        <p>Core Requirements:</p>
+
+        <ol>
+            <li>Handle "Alma 1:2" style references</li>
+            <li>Handle "Alma 1:2-3" style references</li>
+            <li>Handle both "Alma 1:2" and "Alma 2:3" style references in the same file.</li>
+        </ol>
+
+        <p>Stretch Challenges: (Make sure everyone on your team is done with their core features before working on these.)</p>
+
+        <ol>
+            <li>Handle "Alma 1" style references in addition to the other references.</li>
+            <li>Handle "Alma 1:3-2" style references appropriately.</li>
+            <li>Handle "1 Nephi 2:3-4" style references.</li>
+        </ol>
+
+        <h1>Submission</h1>
+        <p>You do not need to submit your program (just make sure that everyone has a copy of it for their reference). Instead, answer the accompanying questions in the I-Learn quiz.</p>
+
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>
