@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>13 Prepare : Checkpoint A - Linux Commands</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the first section of the <a href="241-13-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of I/O redirection in Linux. Please read the following <a href="http://linuxcommand.org/lc3_learning_the_shell.php" target="_BLANK">Learning the Shell</a> with particular focus on the I/O Redirection section.
+        </p>
+       
+        <h2>Instructions</h2>
+
+        <p>For this assignment, you will not write and submit a program in C++. Instead, you need to practice using Linux shell commands to complete each of the following tasks. Then, report on your progress via the accompanying I-Learn quiz. For each task, check off if you were able to complete the command, and then copy and paste the command that you used.</p>
+
+        <p>Hint: Be careful. It is easy to erase or ruin files that are important with a simple Linux command. I recommend creating a new empty directory and changing to that directory before practicing these commands.</p>
+
+            <ol>
+                <li><strong>Echo to a file</strong>. From the command line, create a new file named hello.txt, that has the text, "Hello CS 241 World".</li>
+                
+                <li><strong>"Cat" a file</strong>. Display the contents of your hello.txt file by using the "cat" command to display it to the screen.</li>
+
+                <li><strong>Append to a file</strong>. From the command line, append the text "More text here..." to your hello.txt file. Run your command three times and verify the output.</li>
+
+                <li><strong>Directory listing to a file</strong>. List out all the files and sub-directories in <code>/home</code>, and save this result to a file named: homeDirs.txt</li>
+
+                <li><strong>Get the first 20 lines</strong>. Use the "head" command to get the first 20 lines of the homeDirs.txt file and put them in a new file named: homeDirs_20.txt</li>
+
+                <li><strong>Search files</strong>. Use the "grep" command to search through all the .cpp files in your home directory (from 124 or 241) and display all the files that use the term "string".</li>
+
+                <li><strong>Less</strong>. Repeat the grep command from the last step, but this time, pipe the result to "less" so you can scroll through it.</li>
+
+                <li><strong>Grep, Tail, and Redirect</strong>. Repeat the same grep command, but this time, get only the last 5 lines of the result and save them to a file. This means you'll want to pipe the result to "tail" and then redirect the output to a file.</li>
+
+            </ol>
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>
