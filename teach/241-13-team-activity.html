@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Team Activity</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+        <h1>13 Teach : Team Activity - Linux Shell Scripts</h1>
+
+
+        <p>This activity is designed to be completed during class.
+        </p>
+
+        <h1>Overview</h1>
+        <p>This activity will help you practice writing shell scripts in Linux.</p>
+
+        <p>Your assignment is to write a shell script that accepts a directory as a command line parameter, and then iterates through the .cpp files in that directory.</p>
+
+        <h1>Instructions</h1>
+        <p>Divide your teams into groups of 2-3. You should all work together on one laptop, then make sure everyone in your team gets a copy of the work that you complete.</p>
+
+        <h2>Core Requirements</h2>
+        <ol>
+            <li>Create a shell script that accepts a file as a command line parameter and then displays it to the screen as follows: <code>Running on file: /home/cs241/inClass/fileReview.cpp</code> . Make your script executable and ensure that it runs.</li>
+
+            <li>Have your script compile this file to create an executable named <em>source-file</em>.out . So for example, if the input file was <code>/home/cs241/inClass/fileReview.cpp</code> the executable would be named, <code>fileReview.out</code> .</li>
+            
+            <li>Change your script to accept a directory (rather than a file) as the command line parameter. Then have it iterate through all <code>.cpp</code> files in that directory. For each one, do the following:</li>
+
+            <ol>
+                <li>Display a message of what file your program is looking at.</li>
+                <li>Try to compile it using the naming approach from above.</li>
+                <li>If it does not compile, display a message and move on to the next one.</li>
+            </ol>
+
+        </ol>
+
+        <p>When you complete these requirements, show your code to your instructor to "pass it off."</p>
+
+        <h2>Stretch Challenges</h2>
+        <p> After completing the above steps. Make sure that everyone on the entire team is to this point and understands the material. Then, if you have time, move onto the following stretch challenges.</p>
+
+        <ol>
+<!--             <li>Change the above script to look in the file for a "cin" statement. If the file has a "cin" statement, skip it and move on to the next one. If it does not, have your program compile it, run the executable, and save the results to a file named <em>source-file</em>-out.txt, (e.g., <code>fileReview-out.txt</code>).</li> -->
+            <li>Create a new script that accepts a file and counts the number of lines in that file and displays it to the screen.</li>
+            <li>Change this script to iterate through all .cpp or .h files in a directory and output the name of the file along with the number of lines in that file. Finally at the end it should provide a sum of all of those lines.</li>
+            <li>Change the this script so that it looks through sub-directories for <code>.cpp</code> files as well. Test it by running it on your home directory to see how many lines of code you have written!</li>
+        </ol>
+
+
+        <h1>Submission</h1>
+        <p>You do not need to submit your program (just make sure that everyone has a copy of it for their reference). Instead, answer the accompanying questions in the I-Learn quiz.</p>
+
+
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>
