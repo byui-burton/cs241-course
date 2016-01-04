@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Ponder and Prove - Programming Assignment</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>12 Prove : Assignment - Spellcheck and auto-complete suggestions</h1>
+
+
+        <h2>Overview</h2>
+        <p>Now that we have discussed several different data structures and algorithms, we can apply those to solve interesting problems.</p>
+
+        <p>This week, your assignment is to write a program to check the spelling of words and also suggest other auto-completions of a word.</p>
+
+
+        <h2>Instructions</h2>
+            <p>Write a C++ program according to the following:</p>
+
+            <ol>
+                <li>Prompt the user for the location of a word bank. This file is not sorted and will contain one word per line. This set of words is what you will use to determine if a word is spelled correctly and to look up additional words.</li>
+
+                <li>Load the word bank into a data structure in memory and display the text, "<code>Word bank loaded</code>".</li>
+                <li>Prompt the user for words until they enter "quit".</li>
+                <li>For each word entered, first determine if the word is in the word bank, and if so, display the text, "<code>Correct spelling</code>", if not, display, "<code>Incorrect spelling</code>".</li>
+                <li>Next, list all the words in the word bank that start with the text entered. For example, if the user entered the text "compu", your program should list words such as: computation computational, computationally, compute, computer, computers, according to what is in the word bank.</li>
+            </ol>
+
+            <p>A few other guidelines / hints:</p>
+            <ul>
+                <li>Make sure to store the word bank so that it is efficient to look up words.</li>
+                <li>You may create any classes or methods that are helpful.</li>
+                <li>You may use any classes or methods from the Standard Template Library (STL) that are helpful.</li>
+                <li>Don't copy the large word bank file to your home directory, it is large and can fill up your disk quota.</li>
+            </ul>
+
+            <p>The following word bank files are available for testing:</p>
+            <ul>
+                <li><code>/home/cs241/words_small.txt</code></li>
+                <li><code>/home/cs241/words_large.txt</code></li>
+            </ul>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+
+<div class="code">
+Enter word bank file: <span class="user-input">/home/cs241/words_large.txt</span>
+Word bank loaded.
+
+Enter word: <span class="user-input">lasdfskj</span>
+Incorrect spelling
+Matching words:
+
+Enter word: <span class="user-input">computation</span>
+Correct spelling
+Matching words:
+  computation
+  computational
+  computationally
+  computations
+
+Enter word: <span class="user-input">algorith</span>
+Incorrect spelling
+Matching words:
+  algorithm
+  algorithmic
+  algorithmically
+  algorithms
+
+Enter word: <span class="user-input">quit</span>
+Goodbye
+</div>
+
+
+        <h2>Testbed and Submission</h2>
+
+        <p>A testbed script is provided to help you check your work: <code>cs241/assign12</code></p>
+
+        <p>When complete, ensure that your program header (either in your makefile or at the top of a single .cpp file) contains the text "Assignment 12, Spelling".</p>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>
