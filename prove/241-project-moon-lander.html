@@ -155,7 +155,7 @@
 
         <h2>Working as a Team (With your Instructor)</h2>
 
-        <p>In some sections of this course, Moon Lander and future projects are done in pairs. Working in pairs helps divide the work and teaches important principles about agreeing on the interface of a class, but can also present some challenges. To try to achieve the same goals, without some of the challenges, this semester you will each be coding this project in pairs...with the instructor! (Please keep in mind that because other sections, now or in the future, may not have this luxury, you should not share the code you are given with friends in other sections.)</p>
+        <p>In some sections of this course, Moon Lander and future projects are done in pairs. Working in pairs helps divide the work and teaches important principles about agreeing on the interface of a class, but can also present some challenges. To try to achieve the same goals, without some of the challenges, this semester you will not be working in pairs with other students, but rather, will be collaborating with the instructor. In other words, the instructor will provide code for half of the project, and you will be completing the other half. (Please keep in mind that because other sections, now or in the future, may not have this luxury, you should not share the code you are given with friends in other sections.)</p>
         <p>In other words, the instructor will provide a <code>Game</code> class that takes care of much of the logic of the game such as checking for collisions, handling the user input, and calling the appropriate draw functions. Your job is to create a class for the Lander and its Velocity and implement the necessary functions. This means that we need to agree upon the things that a lander can do (it's methods) so they can be called.</p>
 
         <p>The following are the public methods for the <code>Lander</code> and Velocity that the game class expects to be implemented.</p>
@@ -206,7 +206,7 @@
 
         <p>In order to work together, all we need to agree upon is the public interface of the classes. The private data members are completely up to you. Also, you should feel free to add any additional methods to this classes that you determine would be helpful.</p>
 
-        <h3>The Instructors Half</h3>
+        <h3>The Instructor's Half</h3>
         <p>The instructor's half of the code is in the following files:</p>
 
         <ul>
@@ -215,12 +215,16 @@
             <li><code>/home/cs241/moonLander/driver.h</code> -- Contains main, and a "callback" function that determines which methods of the game class to call.</li>
         </ul>
 
+        <h3>The Game Loop</h3>
         <p>The important elements of this code are that it starts up the game, and the continually loops through the following functions:</p>
         <ol>
             <li><code>advance</code> - The <em>moving</em> of objects is done here.</li>
             <li><code>handleInput</code> - Check for user input and take the corresponding actions.</li>
             <li><code>draw</code> - Call draw on every object that should be on the screen.</li>
         </ol>
+
+        <h4>More Detail on the Game Loop</h4>
+        <p>The game loop is described in much more detail here: <a href="../intro/241-gameloop.html" target="_BLANK">The Game Loop</a>. It will be valuable to get familiar with the game loop because it will be the same for all of our graphics projects.</p>
 
         <h2>Getting the Files</h2>
         <p>All of the above-mentioned files are found in the directory:</p>

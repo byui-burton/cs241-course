@@ -362,3 +362,27 @@ margin: 2em auto;
 max-width: 80%;
 display: block;
 }
+
+pre code {
+	font-family: Menlo, Monaco, Consolas, monospace;
+	font-size: 14px;
+	line-height: 1.4em;
+	margin: 2em auto;
+	padding: 2em;
+	border: 1px solid #CCC;
+}
+
+p code, li code {
+	color: #A10200;
+	font-size: 13px;
+	font-family: Menlo, Monaco, Consolas, monospace;
+	background: #FFF;
+	border: 1px solid #CCC;
+	padding: 1px 3px;
+}
+
+.markdown.hljs {
+	background: #333;
+	color: #f8f8f8;
+}
+
