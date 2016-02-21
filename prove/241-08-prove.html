@@ -23,34 +23,43 @@
             <p>Refer to the <a href="241-project-skeet.html">Skeet project description</a> for the details of this project.</p>
 
             <h2>Requirements</h2>
-            <p>For this milestone, you need to have the Rifle working correctly and the ability to fire a Bullet in the correct direction.</p>
+            <p>For this milestone, you need to first, get the provided code to compile and then, implement bullets firing correctly, and a single "normal" bird flying across the screen.</p>
+
+            <p>You should recognize that a bullet and a bird have many things in common, and create a base class with these common elements that they can both derive from.</p>
+
+            <h3>Important: Use a Bird Pointer</h3>
+
+            <p>For reasons that will become apparent next week, in order to accommodate the three different types of birds, the game class will need to have a pointer to a bird (<code>Bird*</code>) and dynamically allocate it on the heap. To make sure you are on the right track, <strong>for this milestone you MUST store your bird as a <code>Bird*</code></strong>.</p>
 
             <p>Thus, at a minimum, you should have the following:</p>
 
             <ol>
-                <li>A class for a Rifle</li>
-                <li>A class for a Bullet</li>
-                <li>Have separate files for the above mentioned classes, and a makefile that correctly builds everything in the Linux Lab environment.</li>
-                <li>Demonstrate the Rifle taking aim and firing a bullet.</li>
-                <li>Demonstrate the Rifle being limited to the correct range.</li>
-                <li>Demonstrate a Bullet moving across the screen at the correct angle.</li>
+                <li>A base class for flying objects.</li>
+                <li>A class for a bullet</li>
+                <li>A class for a bird</li>
+                <li>Have separate files for the above mentioned classes, and a makefile that correctly builds everything in the Linux Lab environment</li>
+                <li>Demonstrate the rifle taking aim and firing bullets in the correct direction</li>
+                <li>Demonstrate bullets flying across the screen</li>
+                <li>Demonstrate a bird flying across the screen</li>
+                <li>Use a <code>Bird*</code> for your bird</li>
             </ol>
-
-            <p>Helpful Hints:</p>
-            <ul>
-                <li>Don't forget to make use of the Point and Velocity classes from the Moon Lander project.</li>
-                <li>Recognize that you can have things drawn off the edge of the screen. For example, it may be easier to draw the rectangle for the rifle twice as long as you need it, so the "hinge point" can be the center of the rectangle.</li>
-                <li>It is much easier to start bullets at the corner of the screen (inside the rifle) than at the tip of the barrel, and this will be sufficient as long as the angle is correct.</li>
-            </ul>
 
             <p>The following are not specifically required at this point (although having them done already would be a great thing!):</p>
 
                 <ol>
-                    <li>Bird classes</li>
-                    <li>Bullets hitting birds / collision detection</li>
+                    <li>All three types of birds</li>
+                    <li>Bullets / birds dying when they collide</li>
+                    <li>Bullets / birds dying when they leave the screen</li>
                     <li>Scoring</li>
-                    <li>Multiple bullets</li>
                 </ol>
+
+            <h2>Helpful Hints:</h2>
+            <ul>
+                <li>Don't forget to make use of the Point and Velocity classes from the Moon Lander project.</li>
+<!--                 <li>Recognize that you can have things drawn off the edge of the screen. For example, it may be easier to draw the rectangle for the rifle twice as long as you need it, so the "hinge point" can be the center of the rectangle.</li>
+ -->                
+                <li>It is much easier to start bullets at the corner of the screen (inside the rifle) than at the tip of the barrel, and this will be sufficient as long as the angle is correct.</li>
+            </ul>
 
             <h2>Submission</h2>
             <p>Regardless of the approach you take for your personal development, your program must be able to run in the Linux Lab environment.</p>

@@ -35,7 +35,7 @@
 
         <p>The following shows the game in action:</p>
 
-        <img src="../attachments/241-prove-skeet1.jpg" alt="Skeet Game" title="Skeet Game"/>
+        <img src="../attachments/241-prove-skeet1.png" alt="Skeet Game" title="Skeet Game"/>
 
         <h2>Game Rules and Specification</h2>
         <ol>
@@ -44,7 +44,7 @@
             <ol>
                 <li>Standard Bird</li>
                 <ul>
-                    <li>Rendered as a circle with a 20px diameter.</li>
+                    <li>Rendered as a circle with a 15px diameter.</li>
                     <li>A <code>drawCircle</code> function is included in the uiDraw library to assist you.</li>
                     <li>Destroyed with one hit.</li>
                     <li>1 Point is awarded for hitting it.</li>
@@ -101,15 +101,15 @@
         <p>The following examples may be helpful:</p>
 
         <ul>
-            <li>A random function is provided in the uiDraw library that makes it easier to use C++ random numbers. You can call it to get a random number from 2 to 4, as follows:</li>
+            <li>A random function is provided in the uiDraw library that makes it easier to use C++ random numbers. You can call it to get a random number from 2 to 5 (not including 5, or in other words, 2 &lt;= num &lt; 5), as follows:</li>
 <div class="code">
-int myNumber = random(2, 4);
+int myNumber = random(2, 5);
 </div>
             <li>Trig functions (sin, cos, tan) will likely be helpful in determining the x and y components of an angle. They can be found in the <code>cmath</code> library and used as follows. (Note that they expect radians rather than degrees.)</li>
 <div class="code">
 #include &lt;cmath&gt; // used for sin, cos, and M_PI
 ...
-const float BULLET_SPEED = 10.0;
+#define BULLET_SPEED 10.0
 float angle = 60.0;
 ...
 float dx = BULLET_SPEED * (-cos(M_PI / 180.0 * angle));
@@ -117,27 +117,91 @@ float dy = BULLET_SPEED * (sin(M_PI / 180.0 * angle));
 </div>
         </ul>
 
-        <h2>Getting Started</h2>
-        <p>You will use the same framework and classes that you used for MoonLander. You can copy over a fresh set of files from: <code>/home/cs241/skeet/*</code>.</p>
+        <h2>Working with the Instructor</h2>
+        <p>As with the last project, in order to help you stay focused on the most pertinent parts of the assignment, and to also help understand the value of agreeing upon an interface for your classes, you will again be working on a team comprised of you and the instructor.</p>
 
-        <p>The finer details: the files in this directory have the same core libraries as used in MoonLander, but do not have a Ground class, and have removed MoonLander specific elements from the Game Class. Also, the makefile has been updated to have Skeet header information, and no longer contains rules to build the ground class. Also, the uiDraw library has been updated so the drawNumber function can now handle negatives.</p>
+        <p>As before, please recognize that other students in different sections, or different semesters may not be working in this way, so please DO NOT share the code you are receiving.</p>
+
+        <p>For this project the instructor will provide the <code>Rifle</code> class and most of the logic in the <code>Game</code> class. For the game class, you will be provided with the logic of moving the rifle, creating, advancing, and cleaning up bullets, and also checking for collisions.</p>
+
+        <p>You are responsible to implement the following:</p>
+        <ul>
+            <li>The Bullet class</li>
+            <li>A Bird class (containing the common elements of all birds)</li>
+            <li>A base class for flying objects</li>
+            <li>Separate classes for each of the three types of birds</li>
+            <li>In the game class: creating, storing, drawing, advancing, and cleaning up the birds. (Hint: look for the "TODO" comments in the game class)</li>
+        </ul>
+
+        <p>Provided you correctly implement the methods for birds and bullets, the collision detection and actual game scoring will be taken care of for you.</p>
+
+        <p>The game class expects the following public methods to be present for birds and bullets:</p>
+
+
+        <div class="class-diagrams">
+            <table class="table-class-diagram">
+                <tr><th>Bullet</th></tr>
+                <tr><td>...</td></tr>
+                <tr><td>(private data is up to you)</td></tr>
+                <tr><td>...</td></tr>
+                <tr><td>...</td></tr>
+                <tr class='class-diagram-spacer'><td></td></tr>
+                <tr><td>+Bullet()</td></tr>
+                <tr><td>+getPoint() : Point</td></tr>
+                <tr><td>+getVelocity() : Velocity</td></tr>
+                <tr><td>+isAlive() : bool</td></tr>
+                <tr><td>+setPoint(Point) : void</td></tr>
+                <tr><td>+setVelocity(Velocity) : void</td></tr>
+                <tr><td>+kill() : void</td></tr>
+                <tr><td></td></tr>
+                <tr><td>+advance() : void</td></tr>
+                <tr><td>+draw() : void</td></tr>
+                <tr><td>+fire(point:Point, angle:float) : float</td></tr>
+            </table>
+
+            <table class="table-class-diagram">
+                <tr><th>Bird</th></tr>
+                <tr><td>...</td></tr>
+                <tr><td>(private data is up to you)</td></tr>
+                <tr><td>...</td></tr>
+                <tr><td>...</td></tr>
+                <tr class='class-diagram-spacer'><td></td></tr>
+                <tr><td>+Bird(Point)</td></tr>
+                <tr><td>+getPoint() : Point</td></tr>
+                <tr><td>+getVelocity() : Velocity</td></tr>
+                <tr><td>+isAlive() : bool</td></tr>
+                <tr><td>+setPoint(Point) : void</td></tr>
+                <tr><td>+setVelocity(Velocity) : void</td></tr>
+                <tr><td>+kill() : void</td></tr>
+                <tr><td></td></tr>
+                <tr><td>+advance() : void</td></tr>
+                <tr><td>+draw() : void</td></tr>
+                <tr><td>+hit() : int</td></tr>
+            </table>
+        </div>
+
+        <p>The <code>hit()</code> method for the <code>Bird</code> represents the bird being hit and should either kill the bird (or decrement the number of hits remaining for the tough bird) and return an integer representing the points scored for that hit.</p>
+
+
+        <h2>Getting Started</h2>
+        <p>You will use the same framework and classes that you used for MoonLander, plus the Skeet specific files from the Instructor's half. You can copy these files from: <code>/home/cs241/skeet/*</code>.</p>
 
         <h2>Architectural Design</h2>
-        <p>The entire program will need to be implemented using the principles of encapsulation. Thus, you need to think about the different components (classes) that you will need in the game, and their various actions (methods) and properties (member variables). Before you start programing, you will need to produce UML class diagrams for each of the classes you will be using. Please pay special attention to the design of these components, so they can be as general-purpose as possible. You will want to reuse some of them in future projects.</p>
+<!--         <p>The entire program will need to be implemented using the principles of encapsulation. Thus, you need to think about the different components (classes) that you will need in the game, and their various actions (methods) and properties (member variables). Before you start programing, you will need to produce UML class diagrams for each of the classes you will be using. Please pay special attention to the design of these components, so they can be as general-purpose as possible. You will want to reuse some of them in future projects.</p>
+ -->
+        <p>For this project you will be expected to use the principles of inheritance and polymorphism. These are the topics we will be studying over the next two weeks.</p>
 
-        <p>In addition, for this project you will be expected to use the principles of inheritance and polymorphism. These are the topics we will be studying over the next two weeks.</p>
-
-        <p>In order to demonstrate correct use of these design principles, in your game class, you need to have a pointer to your base class (e.g., <code>Bird*</code>) that you use to point to each different bird that is created. You should create each new bird via "new" and then make sure to "delete" it when it is dead. In other words, you should NOT have three different bird objects in your game class.</p>
+        <p>In order to demonstrate correct use of these design principles, in your game class, you need to have a pointer to your base class (e.g., <code>Bird*</code>) that you use to point to each different bird that is created. You should create each new bird via "new" and then make sure to "delete" it when it is dead. In other words, <strong>you should NOT have three different bird objects in your game class</strong>.</p>
 
 
         <h2>Assignments</h2>
-        <p>You have three weeks to complete this project, with milestone submissions due at the end of the first and second weeks. Please note that this is a challenging project that will require you to apply several new and challenging topics.</p>
+        <p>You have two weeks to complete this project, with a milestone submission due at the end of the first week. Please note that this is a challenging project that will require you to apply several new and challenging topics.</p>
 
         <p>This project will be broken up into the following assignment submissions:</p>
 
         <ul>
-            <li><a href="241-design-skeet.html" target="_BLANK">08 Prove : Design - Skeet</a></li>
-            <li><a href="241-08-prove.html" target="_BLANK">08 Prove : Milestone - Skeet</a></li>
+<!--             <li><a href="241-design-skeet.html" target="_BLANK">08 Prove : Design - Skeet</a></li>
+ -->            <li><a href="241-08-prove.html" target="_BLANK">08 Prove : Milestone - Skeet</a></li>
             <li><a href="241-09-prove.html" target="_BLANK">09 Prove : Project - Skeet</a></li>
         </ul>
 
