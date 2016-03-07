@@ -103,6 +103,68 @@
 
         </ol>
 
+
+        <h2>Architectural Design</h2>
+        <p>The entire program will need to be implemented using the principles of encapsulation. Thus, you need to think about the different components (classes) that you will need in the game, and their various actions (methods) and properties (member variables). Before you start programing, you will need to produce UML class diagrams for each of the classes you will be using. Please pay special attention to the design of these components, so they can be as general-purpose as possible.</p>
+
+        <p>In addition, for this project you will be expected to use the principles of inheritance and polymorphism. You should identify code that is shared among classes and put it in a common base class.</p>
+
+        <h2>Getting Started</h2>
+        <p>You will use the same framework and classes that you used for MoonLander and Skeet.</p>
+
+        <p>With each project, you have written more of the logic of the game and (hopefully) have become more familiar with the concepts of objects interacting, the game loop, etc. At this point, using the previous projects as a guide, you will start from scratch to create your Asteroids project.</p>
+
+        <h3>Milestones</h3>
+        
+        <p>Starting a large project like this can sometimes seem overwhelming. So to help guide you through this process, a milestone deliverable will be required at the end of each week. More detailed information is contained below, but in short these milestones will require:</p>
+
+        <ul>
+            <li>Milestone 1 - Stub functions and floating rocks</li>
+            <li>Milestone 2 - Ship and bullets working</li>
+            <li>Milestone 3 - Collisions and asteroids breaking apart</li>
+            <li>Final Project - Finish the project and add extra features</li>
+        </ul>
+
+
+        <h3>Starting Code</h3>
+        <p>You are provided with the same uiDraw/uiInteract functions from before. You can copy over a fresh set of these files from: <code>/home/cs241/asteroids/*</code></p>
+
+        <p>This contains the following:</p>
+        <ul>
+            <li>All of the same libraries we have been working with to this point and a driver.cpp file.</li>
+            <li>Blank files (both a .h and .cpp) for each of the following:</li>
+                <ol>
+                    <li>game</li>
+                    <li>velocity</li>
+                    <li>flyingObject</li>
+                    <li>ship</li>
+                    <li>bullet</li>
+                    <li>rocks</li>
+                </ol>
+            <li>The rocks.h and rocks.cpp files are intended to hold all three of your asteroid classes (BigRock, MediumRock, SmallRock) plus a common base class (Rock).</li>
+            <li>A working makefile.</li>
+        </ul>
+
+        <p>After copying these files to your working directory, you will likely want to copy over your own <code>Velocity</code> class from previous assignments as a starting point. Also, while it may not completely cover all you need for asteroids, your <code>FlyingObject</code> class from Skeet will likely be a good start for this project as well.</p>
+
+        <p>You may add more files as you desire, just remember to update the makefile if you do.</p>
+
+        <h2>Assignments</h2>
+        <p>You have four weeks to complete this project, with milestone submissions due along the way. Please note that this is a challenging project that will require you to apply several new and challenging topics. If you wait until the last week, you will not have time to complete the project.</p>
+
+        <p>This project will be broken up into the following assignment submissions:</p>
+
+        <ul>
+            <li><a href="241-design-asteroids.html" target="_BLANK">10 Prove : Design - Asteroids</a></li>
+            <li><a href="241-10-prove.html" target="_BLANK">10 Prove : Milestone - Asteroids Part 1</a></li>
+            <li><a href="241-11-prove.html" target="_BLANK">11 Prove : Milestone - Asteroids Part 2</a></li>
+            <li><a href="241-12-prove.html" target="_BLANK">12 Prove : Milestone - Asteroids Part 3</a></li>
+            <li><a href="241-13-prove.html" target="_BLANK">13 Prove : Project - Asteroids</a></li>
+        </ul>
+
+        <h2>Expectation to Excel</h2>
+        <p>As explained in more detail in the Project link above, the requirements presented here are simply a base standard. To receive up to 100% on this assignment you are expected to show creativity and excel above and beyond what is specifically required.</p>
+
         <h2>Hints and examples</h2>
         <p>The following examples may be helpful:</p>
 
@@ -121,66 +183,53 @@ float angle = 60.0;
 float dx = BULLET_SPEED * (-cos(M_PI / 180.0 * angle));
 float dy = BULLET_SPEED * (sin(M_PI / 180.0 * angle));
 </div>
+
+        <li>Finding collisions between fast-moving objects can be a little tricky, especially if you consider that they may technically collide between frames. To detect that case, you need to look at small steps between the frames and check for collision at each of these points. The following function may be helpful to you in getting the closest distance between two objects at any point during the frames:</li>
+
+<div class="code">
+// The getClosestDistance function requires these includes:
+#include <limits>
+#include <algorithm>
+using namespace std;
+</div>
+
+<div class="code">
+/**********************************************************
+ * Function: getClosestDistance
+ * Description: Determine how close these two objects will
+ *   get in between the frames.
+ **********************************************************/
+float Game :: getClosestDistance(const FlyingObject &obj1, const FlyingObject &obj2) const
+{
+   // find the maximum distance traveled
+   float dMax = max(abs(obj1.getVelocity().getDx()), abs(obj1.getVelocity().getDy()));
+   dMax = max(dMax, abs(obj2.getVelocity().getDx()));
+   dMax = max(dMax, abs(obj2.getVelocity().getDy()));
+   dMax = max(dMax, 0.1f); // when dx and dy are 0.0. Go through the loop once.
+   
+   float distMin = std::numeric_limits<float>::max();
+   for (float i = 0.0; i <= dMax; i++)
+   {
+      Point point1(obj1.getPoint().getX() + (obj1.getVelocity().getDx() * i / dMax),
+                     obj1.getPoint().getY() + (obj1.getVelocity().getDy() * i / dMax));
+      Point point2(obj2.getPoint().getX() + (obj2.getVelocity().getDx() * i / dMax),
+                     obj2.getPoint().getY() + (obj2.getVelocity().getDy() * i / dMax));
+      
+      float xDiff = point1.getX() - point2.getX();
+      float yDiff = point1.getY() - point2.getY();
+      
+      float distSquared = (xDiff * xDiff) +(yDiff * yDiff);
+      
+      distMin = min(distMin, distSquared);
+   }
+   
+   return sqrt(distMin);
+}
+</div>
+
         </ul>
 
-        <h2>Getting Started</h2>
-        <p>You will use the same framework and classes that you used for MoonLander and Skeet.</p>
 
-        <h3>Working as a team with the instructor</h3>
-        <p>In addition, you are also getting a significant amount of code for your game logic. In many sections of this course, this program is written from scratch by two students working together. This is a great opportunity to learn the value of agreeing on the interface (or essentially .h file) of a class, and then being able to go your separate ways and work fairly independently.</p>
-
-        <p>In a way, we will also be working in "pairs" this semester coding up different parts of the program, but rather than having students pair up with other students, each of you will pair up with the instructor. In this regard, we need to agree on a common interface for the classes we will use, and the instructor will provide half of the code.</p>
-
-        <p>The instructors half of the code will be the Game class. This will include all the logic about collision detection, iterating through lists of items to draw, advance, and remove objects. The game class you are provided should be complete, however you may feel free to make changes to it as you desire (especially in completing feature above and beyond the core requirements).</p>
-
-        <h3>Do not distribute this code</h3>
-        <p>Finally, please note that other sections of this course, and especially other semesters, are NOT going to receive this game class, but will have to write it themselves. Please help us by NOT sharing this code with anyone else, including friends in future semesters. Your cooperation and integrity in this regard is what allows us to help you on your project.</p>
-
-        <h3>Getting the code</h3>
-        <p>You can copy over the provided code from: <code>/home/cs241/asteroids/*</code></p>
-
-        <p>This contains the following:</p>
-        <ul>
-            <li>All of the same libraries we have been working with to this point.</li>
-            <li>Fully implemented <code>game.h</code> and <code>game.cpp</code> files.</li>
-            <li>Blank files (both a .h and .cpp) for each of the following:</li>
-                <ol>
-                    <li>velocity</li>
-                    <li>flyingObject</li>
-                    <li>ship</li>
-                    <li>bullet</li>
-                    <li>rocks</li>
-                </ol>
-            <li>The rocks.h and rocks.cpp files are intended to hold all three of your asteroid classes (BigRock, MediumRock, SmallRock) plus a common base class (Rock).</li>
-            <li>A working makefile.</li>
-        </ul>
-
-        <p>After copying these files to your working directory, you will likely want to copy over your own <code>Velocity</code> class from previous assignments as a starting point. Also, while it may not completely cover all you need for asteroids, your <code>FlyingObject</code> class from Skeet will likely be a good start for this project as well.</p>
-
-        <p>You may add more files as you desire, just remember to update the makefile if you do.</p>
-
-        <h2>Architectural Design</h2>
-        <p>The entire program will need to be implemented using the principles of encapsulation. Thus, you need to think about the different components (classes) that you will need in the game, and their various actions (methods) and properties (member variables). Before you start programing, you will need to produce UML class diagrams for each of the classes you will be using. Please pay special attention to the design of these components, so they can be as general-purpose as possible.</p>
-
-        <p>In addition, for this project you will be expected to use the principles of inheritance and polymorphism. You should identify code that is shared among classes and put it in a common base class.</p>
-
-        <p>Finally, to help you work with velocity objects, you should overload some operators (at a minimum, the <code>+</code> operator) for this class.</p>
-
-        <h2>Assignments</h2>
-        <p>You have three weeks to complete this project, with milestone submissions due at the end of the first and second weeks. Please note that this is a challenging project that will require you to apply several new and challenging topics. If you wait until the last week, you will not have time to complete the project.</p>
-
-        <p>This project will be broken up into the following assignment submissions:</p>
-
-        <ul>
-            <li><a href="241-design-asteroids.html" target="_BLANK">10 Prove : Design - Asteroids</a></li>
-            <li><a href="241-10-prove.html" target="_BLANK">10 Prove : Milestone - Asteroids Part 1</a></li>
-            <li><a href="241-11-prove.html" target="_BLANK">11 Prove : Milestone - Asteroids Part 2</a></li>
-            <li><a href="241-12-prove.html" target="_BLANK">12 Prove : Milestone - Asteroids Part 3</a></li>
-            <li><a href="241-13-prove.html" target="_BLANK">13 Prove : Project - Asteroids</a></li>
-        </ul>
-
-        <h2>Expectation to Excel</h2>
-        <p>As explained in more detail in the Project link above, the requirements presented here are simply a base standard. To receive up to 100% on this assignment you are expected to show creativity and excel above and beyond what is specifically required.</p>
 
 
         </article>

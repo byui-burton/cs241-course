@@ -23,16 +23,23 @@
             <p>Refer to the <a href="241-project-asteroids.html">Asteroids project description</a> for the details of this project.</p>
 
             <h2>Requirements</h2>
-            <p>For this milestone you should have your ship correctly moving around firing bullets (and the bullets going the correct velocity and dying at the correct time). This means you should also have a completely implemented <code>Velocity</code> class and a <code>FlyingObject</code> class.</p>
+            <p>For this milestone you should have:</p>
 
-            <p>You are not required to have your Rock classes working yet, nor do you need to have wrapping at the screen edges in place. Of course, it is great if you can have them done already!</p>
+            <ol>
+                <li>The ship correctly moving</li>
+                <li>Bullets being fired correctly (correct direciton, velocity, and dying at the correct time)</li>
+                <li>Wrapping around screen edges for the ship, bullets, and rocks (where objects that leave the right side of the screen appear on the left, etc.)</li>
+                <li>The previous items require that you also have a completely implemented the <code>Velocity</code> and <code>FlyingObject</code> classes.</p>
+            </ol>
+
+            <p>You do not need to worry about any collisions or rocks breaking apart at this point.</p>
 
             <h2>Submission</h2>
             <p>Regardless of the approach you take for your personal development, your program must be able to run in the Linux Lab environment.</p>
             <ol>
                 <li>When complete, if necessary, copy your code to the Linux Lab and ensure that it compiles.</li>
                 <li>Open the makefile and ensure that it has the proper information in the header (i.e., your name, class, instructor).</li>
-                <li>Make sure the name of the assignment is "Milestone 12, Asteroids" (not Assignment 12, or Project 12). This is a different number than last week.</li>
+                <li>Make sure the name of the assignment is "Milestone 11, Asteroids" (not Assignment 11, or Project 11). This is a different number than last week.</li>
                 <li>Create a tar file with all of your files and submit it. For example:</li>
 <div class="code">
 tar -cf asteroids.tar makefile *.cpp *.h
