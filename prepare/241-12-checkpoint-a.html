@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>CS 241 - Checkpoint</title>
+    <link rel="stylesheet" type="text/css" href="../course/style.css" />
+</head>
+
+<body>
+    <div id= "main" class="splash">
+        <div id="header">
+            <img class="banner" alt="CS 241 Banner" title="CS 241 Banner" src="../course/cs241.jpg" />
+        </div>
+
+        <article>
+
+        <h1>12 Prepare : Checkpoint A - Simple hash function</h1>
+
+
+        <p>After completing (or <i>while</i> completing) the <a href="241-12-prepare.html">preparation material</a> for this week, complete the following exercise.
+        </p>
+
+        <h2>Overview</h2>
+        <p>
+            This checkpoint is intended to help you practice the syntax of a basic hash function. You will write a hash function that takes a string and determines an index to put it in an array.
+        </p>
+       
+        <h2>Instructions</h2>
+
+        <p>Write a function that computes an array index give a string and an array size.</p>
+
+        <p>For this very simple hash implementation, you should compute the index by summing the ASCII values of each character in the string, and then computing the mod (<code>%</code> operator).</p>
+
+            <ol>
+                <li>Begin by copying the template file /home/cs241/check12a.cpp to your working directory.</li>
+
+                <li>All you need to do is implement the <code>getHashCode</code> function.</li>
+            </ol>
+
+        <h2>Sample Output</h2>
+        <p>
+            The following is an example of output for this program:
+        </p>
+<div class="code">
+Enter a table size: <span class="user-input">100</span>
+Enter a string: <span class="user-input">A</span>
+
+The hash code is: 65
+</div>
+
+<div class="code">
+Enter a table size: <span class="user-input">100</span>
+Enter a string: <span class="user-input">waffles</span>
+
+The hash code is: 44
+</div>
+
+<div class="code">
+Enter a table size: <span class="user-input">200</span>
+Enter a string: <span class="user-input">waffles</span>
+
+The hash code is: 144
+</div>
+
+
+
+        <h2>Testbed</h2>
+        <p>
+            An auto-grading testbed script is provided for you to help evaluate your program. This same testbed script will be used to grade your program. It is pass/fail, so your program must pass the testbed completely for you to receive credit for this assignment. You may run the testbed as many times as you like.
+        </p>
+
+        <h2>Helpful commands</h2>
+<div class="code">
+testBed cs241/check12a check12a.cpp
+submit check12a.cpp
+</div>
+
+        </article>
+    </div>
+
+
+</body>
+
+</html>
