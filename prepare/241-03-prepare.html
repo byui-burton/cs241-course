@@ -32,6 +32,74 @@
         </p>
 
 
+        <h2>Parsing Streams in C++</h2>
+        <p>In addition, for your team activity and this week's assignment, the following will prove helpful for parsing streams.</p>
+        <h3>Console and File Streams</h3>
+        <p>To this point, we have used two kinds of streams in C++, those that work with the console (<code>cin</code> and <code>cout</code>) from the <code>iostream</code> library, and those that work with files (<code>fin</code> and <code>fout</code>) from the <code>fstream</code> library.</p>
+
+        <p>In each of these cases, we can work with the streams consistently to read a variable:</p>
+
+<div class="code">
+cin >> name; // reads a variable from the console "stream"
+fin >> name; // reads a variable from a file "stream"
+</div>
+
+        <p>Similarly, output, error checking and everything else we commonly do with streams will work the same.</p>
+
+<div class="code">
+cout &lt;&lt; "Hello " &lt;&lt; name &lt;&lt; " nice to meet you!\n"; // write to the console
+fout &lt;&lt; "Hello " &lt;&lt; name &lt;&lt; " nice to meet you!\n"; // write to a file
+
+if (cin.fail()) // check for errors reading from cin
+   ...
+
+if (fin.fail()) // check for errors reading from fin
+   ...
+</div>
+
+        <h3>Parsing Strings</h3>
+        <p>Sometimes, we have a string that contains data that we would like to parse out into other variables. For example, we may have a string with the value "Joe Doe 25" that we want to parse into variables for firstName, lastName, and age.</p>
+        <p>One way to do this in C++ is to use a "stringstream" which lets us use all of the tools we are used to for cin/fin, but to read values from a string variable instead.</p>
+        <p>To use a stringstream, you need to first include the <code>sstream</code> library. Then you can declare a new stringstream object as follows:</p>
+
+<div class="code">
+#include &lt;string&gt; // used for string
+#include &lt;sstream&gt; // used for stringstream
+using namespace std;
+
+...
+
+string myText = "Joe Doe 25";
+stringstream buffer(myText);
+</div>
+
+    
+        <p>At this point, you can now treat buffer, just like <code>cin</code> or <code>fin</code>, and use any of the commands and syntax you are familiar with from them. For example:</p>
+
+<div class="code">
+string firstName;
+string lastName;
+int age;
+
+buffer >> firstName;
+buffer >> lastName;
+buffer >> age;
+</div>
+
+        <p>You can even check for errors parsing from that stream:</p>
+<div class="code">
+if (buffer.fail())
+{
+    cout << "Error parsing the string\n.";
+    cout << "Perhaps you had letters instead of numbers?\n";
+}
+</div>
+
+
+        <p>There are other ways to parse strings, and you are more than welcome to explore them, but this is a fairly straightforward way that you are encouraged to use on your team activity and weekly assignment this week.</p>
+
+        <p>As always, the Internet contains many more examples and a deeper explanation of stringstream.</p>
+
 
         </article>
     </div>
