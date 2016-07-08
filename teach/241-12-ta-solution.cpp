@@ -8,6 +8,8 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <map>
+#include <iomanip>
 using namespace std;
 
 /*************************************************
@@ -65,7 +67,7 @@ void parseLine(string line, Record & record)
    }
 }
 
-void readFile(string file)
+void readFile(string file, map<string, int> & jobMap)
 {
    ifstream fin(file.c_str());
 
@@ -81,12 +83,29 @@ void readFile(string file)
       Record record;
 
       parseLine(line, record);
-    
-      cout << "The occupation was: " << record.occupation << endl;
+   
+      jobMap[record.occupation]++;
    }
 
    fin.close();
 }
+
+/*************************************************
+ * displayResults
+ *
+ * Iterates through a map of strings->ints and
+ * ouputs each key and value.
+ *************************************************/
+void displayResults(map<string, int> & resultsMap)
+{
+   for (map<string, int>::iterator it = resultsMap.begin();
+        it != resultsMap.end();
+        it++)
+   {
+      cout << setw(25) << it->first << setw(10) << it->second << endl;
+   }
+}
+
 
 /************************
  * Function: main
@@ -97,7 +116,12 @@ int main()
    cout << "Enter file: ";
    cin >> file;
 
-   readFile(file);
+   map<string, int> jobMap;
+
+   readFile(file, jobMap);
+
+   cout<< "\nOccupation Results:\n";
+   displayResults(jobMap);
 
    return 0;
 }
