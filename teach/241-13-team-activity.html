@@ -38,9 +38,37 @@ Running on file: myFile.cpp
 </div>
                 <p>Make your script executable and ensure that it runs.</li>
 
-            <li>Have your script count the number of lines in that file and display it to the screen.</li>
+            <li>Have your script count the number of lines in that file and display it to the screen. For example:</li>
+
+<div class="code">
+$ ./lineCounter.sh myFile.cpp 
+Running on file: myFile.cpp
+127 myFile.cpp
+</div>
 
            <li>Change your script to accept a directory (rather than a file) as the command line parameter. Then have it iterate through all <code>.cpp</code> files in that directory and for each one, display the name of the file and the number of lines in that file.</li>     
+
+<div class="code">
+$ ./lineCounter.sh /home/cs241
+Running on directory: /home/cs241
+Files in the directory:
+60 /home/cs241/check02b.cpp
+47 /home/cs241/check08a.cpp
+49 /home/cs241/check09a.cpp
+151 /home/cs241/check09b.cpp
+26 /home/cs241/check10a.cpp
+212 /home/cs241/check10b.cpp
+84 /home/cs241/check11a.cpp
+84 /home/cs241/check11b.cpp
+47 /home/cs241/check12a.cpp
+21 /home/cs241/checkpoint.cpp
+47 /home/cs241/ta03.cpp
+47 /home/cs241/ta07.cpp
+59 /home/cs241/ta09.cpp
+75 /home/cs241/ta11.cpp
+103 /home/cs241/ta12.cpp
+29 /home/cs241/template.cpp
+</div>
 
 <!--            <li>Have your script compile this file to create an executable named <em>source-file</em>.out . So for example, if the input file was <code>/home/cs241/inClass/fileReview.cpp</code> the executable would be named, <code>fileReview.out</code> .</li>
             
@@ -62,11 +90,13 @@ Running on file: myFile.cpp
         <ol>
 <!--             <li>Change the above script to look in the file for a "cin" statement. If the file has a "cin" statement, skip it and move on to the next one. If it does not, have your program compile it, run the executable, and save the results to a file named <em>source-file</em>-out.txt, (e.g., <code>fileReview-out.txt</code>).</li> -->
  
-            <li>Have your script sum up all the lines of all the <code>.cpp</code> files in the given directory, and display the total number of lines at the very end.</li>
+<!--             <li>Have your script sum up all the lines of all the <code>.cpp</code> files in the given directory, and display the total number of lines at the very end.</li>
+ -->
+            <li>Change your script so that the number of lines per file is saved to an output file, rather than to the screen. Specify the output file with another parameter (e.g., <code>./lineCounter.sh /home/cs241 cppLines.txt</code>)
 
-            <li>Change your this script so that it looks through sub-directories for <code>.cpp</code> files as well.</li>
+            <li>Change your script so that it looks through sub-directories (just one level deep) for <code>.cpp</code> files as well.</li>
 
-            <li>Change your script so that in additional to accepting a directory name, it also accepts a list of potential extensions (countLines.sh myDir cpp h txt). Then, have it count the lines in all of those types of files.</li>
+            <li>Change your script so that in additional to accepting a directory name, it also accepts a list of potential extensions (e.g., <code>./lineCounter.sh /home/cs241 cppLines.txt cpp h txt</code>). Then, have it count the lines in all of those types of files.</li>
         </ol>
 
 
